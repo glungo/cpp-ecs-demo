@@ -1,0 +1,171 @@
+Start testing: Mar 03 10:33 -03
+----------------------------------------------------------
+1/4 Testing: WorldTests
+1/4 Test: WorldTests
+Command: "/Users/german/cpp-ecs-demo/build/src/entities/world_tests"
+Directory: /Users/german/cpp-ecs-demo/build/src/entities
+"WorldTests" start time: Mar 03 10:33 -03
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"WorldTests" end time: Mar 03 10:33 -03
+"WorldTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: ArchetypeTests
+2/4 Test: ArchetypeTests
+Command: "/Users/german/cpp-ecs-demo/build/src/entities/archetype_tests"
+Directory: /Users/german/cpp-ecs-demo/build/src/entities
+"ArchetypeTests" start time: Mar 03 10:33 -03
+Output:
+----------------------------------------------------------
+Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Destroying item at index 0, active_items.size() before: 1
+After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Destroying item at index 0, active_items.size() before: 1
+After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
+Created new item at index 1
+Destroying item at index 0, active_items.size() before: 2
+After destroy: first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
+Destroying item at index 1, active_items.size() before: 1
+After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Creating 20 entities
+Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
+Created new item at index 1
+Creating item. first_free_index: 2, first_unallocated_index: 2, active_items.size(): 2
+Created new item at index 2
+Creating item. first_free_index: 3, first_unallocated_index: 3, active_items.size(): 3
+Created new item at index 3
+Creating item. first_free_index: 4, first_unallocated_index: 4, active_items.size(): 4
+Created new item at index 4
+Creating item. first_free_index: 5, first_unallocated_index: 5, active_items.size(): 5
+Created new item at index 5
+Creating item. first_free_index: 6, first_unallocated_index: 6, active_items.size(): 6
+Created new item at index 6
+Creating item. first_free_index: 7, first_unallocated_index: 7, active_items.size(): 7
+Created new item at index 7
+Creating item. first_free_index: 8, first_unallocated_index: 8, active_items.size(): 8
+Created new item at index 8
+Creating item. first_free_index: 9, first_unallocated_index: 9, active_items.size(): 9
+Created new item at index 9
+Creating item. first_free_index: 10, first_unallocated_index: 10, active_items.size(): 10
+Created new item at index 10
+Creating item. first_free_index: 11, first_unallocated_index: 11, active_items.size(): 11
+Created new item at index 11
+Creating item. first_free_index: 12, first_unallocated_index: 12, active_items.size(): 12
+Created new item at index 12
+Creating item. first_free_index: 13, first_unallocated_index: 13, active_items.size(): 13
+Created new item at index 13
+Creating item. first_free_index: 14, first_unallocated_index: 14, active_items.size(): 14
+Created new item at index 14
+Creating item. first_free_index: 15, first_unallocated_index: 15, active_items.size(): 15
+Created new item at index 15
+Creating item. first_free_index: 16, first_unallocated_index: 16, active_items.size(): 16
+Created new item at index 16
+Creating item. first_free_index: 17, first_unallocated_index: 17, active_items.size(): 17
+Created new item at index 17
+Creating item. first_free_index: 18, first_unallocated_index: 18, active_items.size(): 18
+Created new item at index 18
+Creating item. first_free_index: 19, first_unallocated_index: 19, active_items.size(): 19
+Created new item at index 19
+Destroying 5 entities
+Destroying item at index 0, active_items.size() before: 20
+After destroy: first_free_index: 0, first_unallocated_index: 20, active_items.size(): 19
+Destroying item at index 1, active_items.size() before: 19
+After destroy: first_free_index: 0, first_unallocated_index: 20, active_items.size(): 18
+Destroying item at index 2, active_items.size() before: 18
+After destroy: first_free_index: 0, first_unallocated_index: 20, active_items.size(): 17
+Destroying item at index 3, active_items.size() before: 17
+After destroy: first_free_index: 0, first_unallocated_index: 20, active_items.size(): 16
+Destroying item at index 4, active_items.size() before: 16
+After destroy: first_free_index: 0, first_unallocated_index: 20, active_items.size(): 15
+Creating 3 more entities
+Creating item. first_free_index: 0, first_unallocated_index: 20, active_items.size(): 15
+Reusing item
+Reused item at index 0
+Creating item. first_free_index: 1, first_unallocated_index: 20, active_items.size(): 16
+Reusing item
+Reused item at index 1
+Creating item. first_free_index: 2, first_unallocated_index: 20, active_items.size(): 17
+Reusing item
+Reused item at index 2
+Checking that all components are active
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"ArchetypeTests" end time: Mar 03 10:33 -03
+"ArchetypeTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: ComponentTests
+3/4 Test: ComponentTests
+Command: "/Users/german/cpp-ecs-demo/build/src/entities/component_tests"
+Directory: /Users/german/cpp-ecs-demo/build/src/entities
+"ComponentTests" start time: Mar 03 10:33 -03
+Output:
+----------------------------------------------------------
+Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Destroying item at index 0, active_items.size() before: 1
+After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"ComponentTests" end time: Mar 03 10:33 -03
+"ComponentTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: EntityManagerTests
+4/4 Test: EntityManagerTests
+Command: "/Users/german/cpp-ecs-demo/build/src/entities/entity_manager_tests"
+Directory: /Users/german/cpp-ecs-demo/build/src/entities
+"EntityManagerTests" start time: Mar 03 10:33 -03
+Output:
+----------------------------------------------------------
+Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
+Created new item at index 1
+Destroying item at index 0, active_items.size() before: 2
+After destroy: first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
+Destroying item at index 1, active_items.size() before: 1
+After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
+Created new item at index 1
+Creating item with args. first_free_index: 2, first_unallocated_index: 2, active_items.size(): 2
+Created new item at index 2
+Creating item with args. first_free_index: 3, first_unallocated_index: 3, active_items.size(): 3
+Pool is full
+Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
+Created new item at index 0
+Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
+Created new item at index 1
+Destroying item at index 0, active_items.size() before: 2
+After destroy: first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
+Creating item with args. first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
+Reusing item
+Reused item at index 1
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"EntityManagerTests" end time: Mar 03 10:33 -03
+"EntityManagerTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 03 10:33 -03

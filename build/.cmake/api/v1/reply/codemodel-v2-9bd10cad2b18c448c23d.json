@@ -1,0 +1,147 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						5
+					]
+				},
+				{
+					"build" : "src/entities",
+					"jsonFile" : "directory-src.entities-Debug-fccdb8716d8c4418595d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src/entities",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ecs-demo",
+					"targetIndexes" : 
+					[
+						2,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "ecs-entities",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "archetype_tests::@5fff82e951f4e7e56bf3",
+					"jsonFile" : "target-archetype_tests-Debug-118b56e56b6869423f72.json",
+					"name" : "archetype_tests",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "component_tests::@5fff82e951f4e7e56bf3",
+					"jsonFile" : "target-component_tests-Debug-7fe3676a465d7016f7d2.json",
+					"name" : "component_tests",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ecs-demo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ecs-demo-Debug-9c2ee5bfcfd680a29acf.json",
+					"name" : "ecs-demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "entities::@5fff82e951f4e7e56bf3",
+					"jsonFile" : "target-entities-Debug-84c43a626c0968a7cba7.json",
+					"name" : "entities",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "entity_manager_tests::@5fff82e951f4e7e56bf3",
+					"jsonFile" : "target-entity_manager_tests-Debug-a450888997dda45f47da.json",
+					"name" : "entity_manager_tests",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run_tests-Debug-e1de2b66cbe14c601210.json",
+					"name" : "run_tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "world_tests::@5fff82e951f4e7e56bf3",
+					"jsonFile" : "target-world_tests-Debug-fa41b53bb85d74a009f5.json",
+					"name" : "world_tests",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/german/cpp-ecs-demo/build",
+		"source" : "/Users/german/cpp-ecs-demo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

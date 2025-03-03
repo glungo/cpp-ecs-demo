@@ -1,0 +1,13 @@
+/Users/german/cpp-ecs-demo/build/CMakeFiles/ecs-demo.dir
+/Users/german/cpp-ecs-demo/build/CMakeFiles/run_tests.dir
+/Users/german/cpp-ecs-demo/build/CMakeFiles/test.dir
+/Users/german/cpp-ecs-demo/build/CMakeFiles/edit_cache.dir
+/Users/german/cpp-ecs-demo/build/CMakeFiles/rebuild_cache.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/entities.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/world_tests.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/archetype_tests.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/component_tests.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/entity_manager_tests.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/test.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/edit_cache.dir
+/Users/german/cpp-ecs-demo/build/src/entities/CMakeFiles/rebuild_cache.dir

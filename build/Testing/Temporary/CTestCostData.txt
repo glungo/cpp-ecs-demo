@@ -1,0 +1,5 @@
+WorldTests 44 0.00336967
+ArchetypeTests 20 0.00795762
+EntityManagerTests 15 0.00954431
+ComponentTests 6 0.0286033
+---

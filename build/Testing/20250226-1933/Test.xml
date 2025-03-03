@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Darwin-c++"
+	BuildStamp="20250226-1933-Experimental"
+	Name="192.168.1.3"
+	Generator="ctest-3.28.3"
+	CompilerName="/Library/Developer/CommandLineTools/usr/bin/c++"
+	CompilerVersion="15.0.0.15000309"
+	OSName="macOS"
+	Hostname="192.168.1.3"
+	OSRelease="14.5"
+	OSVersion="23F79"
+	OSPlatform="arm64"
+	Is64Bits="1"
+	VendorString="IBM"
+	VendorID="IBM"
+	FamilyID="16777228"
+	ModelID="2"
+	ProcessorCacheSize="131072"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="5120"
+	TotalPhysicalMemory="16384"
+	LogicalProcessorsPerPhysical="8"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Feb 26 16:36 -03</StartDateTime>
+		<StartTestTime>1740598602</StartTestTime>
+		<TestList/>
+		<EndDateTime>Feb 26 16:36 -03</EndDateTime>
+		<EndTestTime>1740598602</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

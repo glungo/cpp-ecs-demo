@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Darwin-c++"
+	BuildStamp="20250303-0309-Experimental"
+	Name="192.168.1.3"
+	Generator="ctest-3.28.3"
+	CompilerName="/Library/Developer/CommandLineTools/usr/bin/c++"
+	CompilerVersion="15.0.0.15000309"
+	OSName="macOS"
+	Hostname="192.168.1.3"
+	OSRelease="14.5"
+	OSVersion="23F79"
+	OSPlatform="arm64"
+	Is64Bits="1"
+	VendorString="IBM"
+	VendorID="IBM"
+	FamilyID="16777228"
+	ModelID="2"
+	ProcessorCacheSize="131072"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="7168"
+	TotalPhysicalMemory="16384"
+	LogicalProcessorsPerPhysical="8"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Mar 03 10:33 -03</StartDateTime>
+		<StartTestTime>1741008817</StartTestTime>
+		<TestList>
+			<Test>./src/entities/EntityManagerTests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>EntityManagerTests</Name>
+			<Path>./src/entities</Path>
+			<FullName>./src/entities/EntityManagerTests</FullName>
+			<FullCommandLine>/Users/german/cpp-ecs-demo/build/src/entities/entity_manager_tests</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0767735</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/Users/german/cpp-ecs-demo/build/src/entities/entity_manager_tests</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJzlksFOwzAMQO/5Ch9BQtGScuoNjQ/gwA2hKWucNVKWTLG7bnw9GYXBYS0Ujhzj2H4vsZcZDfu4Ac+4hd5zCyZvSILzmXjlMuLKR4uHGhY378EumhBSYxjtlzvTsN+X5NKHJPkXvLoucbE8AdBCxH5gGIa3oo+7n8HVBFyNwNUEXIl7JM7peMZ/el1sB2t0KWMNWtw5xgx2qK9n/pQelR0Vuvy+s5D6m9A3o/uXuzEDrn8xaz0B13Pg1QS8GoFX4iGlAJ7AdSFIKcXTY1tOO5MZkgNuEbisEqSOdx1DbwgybtO+6JKPDRYvwEODaGlIbjNSm4I9VauFvoX1sTSQz+IVIYGJ6w==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Mar 03 10:33 -03</EndDateTime>
+		<EndTestTime>1741008817</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
