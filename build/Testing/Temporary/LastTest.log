@@ -1,17 +1,17 @@
-Start testing: Mar 03 20:05 -03
+Start testing: Mar 03 20:28 -03
 ----------------------------------------------------------
 1/9 Testing: test_entity_creation
 1/9 Test: test_entity_creation
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_creation"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_creation" start time: Mar 03 20:05 -03
+"test_entity_creation" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.40 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_creation" end time: Mar 03 20:05 -03
+"test_entity_creation" end time: Mar 03 20:28 -03
 "test_entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -19,18 +19,14 @@ Test Passed.
 2/9 Test: test_component_creation
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_component_creation"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_component_creation" start time: Mar 03 20:05 -03
+"test_component_creation" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Destroying item at index 0, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
-Test time =   0.18 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Passed.
-"test_component_creation" end time: Mar 03 20:05 -03
+"test_component_creation" end time: Mar 03 20:28 -03
 "test_component_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -38,18 +34,14 @@ Test Passed.
 3/9 Test: test_pool_creation
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_pool_creation"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_pool_creation" start time: Mar 03 20:05 -03
+"test_pool_creation" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Destroying item at index 0, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
 Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"test_pool_creation" end time: Mar 03 20:05 -03
+"test_pool_creation" end time: Mar 03 20:28 -03
 "test_pool_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -57,22 +49,14 @@ Test Passed.
 4/9 Test: test_archetype_creation
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_creation"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_creation" start time: Mar 03 20:05 -03
+"test_archetype_creation" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Destroying item at index 0, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Destroying item at index 0, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
 Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_creation" end time: Mar 03 20:05 -03
+"test_archetype_creation" end time: Mar 03 20:28 -03
 "test_archetype_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -80,18 +64,14 @@ Test Passed.
 5/9 Test: test_archetype_component_access
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_component_access"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_component_access" start time: Mar 03 20:05 -03
+"test_archetype_component_access" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Destroying item at index 0, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
 Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_component_access" end time: Mar 03 20:05 -03
+"test_archetype_component_access" end time: Mar 03 20:28 -03
 "test_archetype_component_access" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -99,26 +79,14 @@ Test Passed.
 6/9 Test: test_archetype_entity_iteration
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_entity_iteration"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_entity_iteration" start time: Mar 03 20:05 -03
+"test_archetype_entity_iteration" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Creating item. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
-Created new item at index 1
-Creating item. first_free_index: 2, first_unallocated_index: 2, active_items.size(): 2
-Created new item at index 2
-Destroying item at index 0, active_items.size() before: 3
-After destroy: first_free_index: 0, first_unallocated_index: 3, active_items.size(): 2
-Destroying item at index 1, active_items.size() before: 2
-After destroy: first_free_index: 0, first_unallocated_index: 3, active_items.size(): 1
-Destroying item at index 2, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
-Test time =   0.18 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_entity_iteration" end time: Mar 03 20:05 -03
+"test_archetype_entity_iteration" end time: Mar 03 20:28 -03
 "test_archetype_entity_iteration" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -126,22 +94,14 @@ Test Passed.
 7/9 Test: test_basic_entity_creation
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_basic_entity_creation"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_basic_entity_creation" start time: Mar 03 20:05 -03
+"test_basic_entity_creation" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
-Created new item at index 1
-Destroying item at index 0, active_items.size() before: 2
-After destroy: first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
-Destroying item at index 1, active_items.size() before: 1
-After destroy: first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
 <end of output>
-Test time =   0.17 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"test_basic_entity_creation" end time: Mar 03 20:05 -03
+"test_basic_entity_creation" end time: Mar 03 20:28 -03
 "test_basic_entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -149,22 +109,14 @@ Test Passed.
 8/9 Test: test_entity_pool_overflow
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_pool_overflow"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_pool_overflow" start time: Mar 03 20:05 -03
+"test_entity_pool_overflow" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
-Created new item at index 1
-Creating item with args. first_free_index: 2, first_unallocated_index: 2, active_items.size(): 2
-Created new item at index 2
-Creating item with args. first_free_index: 3, first_unallocated_index: 3, active_items.size(): 3
-Pool is full
 <end of output>
-Test time =   0.17 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_pool_overflow" end time: Mar 03 20:05 -03
+"test_entity_pool_overflow" end time: Mar 03 20:28 -03
 "test_entity_pool_overflow" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -172,24 +124,15 @@ Test Passed.
 9/9 Test: test_entity_reuse
 Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_reuse"
 Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_reuse" start time: Mar 03 20:05 -03
+"test_entity_reuse" start time: Mar 03 20:28 -03
 Output:
 ----------------------------------------------------------
-Creating item with args. first_free_index: 0, first_unallocated_index: 0, active_items.size(): 0
-Created new item at index 0
-Creating item with args. first_free_index: 1, first_unallocated_index: 1, active_items.size(): 1
-Created new item at index 1
-Destroying item at index 0, active_items.size() before: 2
-After destroy: first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
-Creating item with args. first_free_index: 0, first_unallocated_index: 2, active_items.size(): 1
-Reusing item
-Reused item at index 1
 <end of output>
 Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_reuse" end time: Mar 03 20:05 -03
+"test_entity_reuse" end time: Mar 03 20:28 -03
 "test_entity_reuse" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Mar 03 20:05 -03
+End testing: Mar 03 20:28 -03

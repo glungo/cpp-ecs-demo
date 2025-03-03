@@ -53,7 +53,7 @@ public:
     static std::vector<std::string> GetEntities() {
         static_assert((std::is_same_v<T, Components> || ...), 
             "Component type not in archetype");
-        return utils::SetToVector(entity_sets<T>);
+        return ::utils::SetToVector(entity_sets<T>);
     }
 
     // Get all components of a specific type
@@ -61,7 +61,7 @@ public:
     static std::vector<T*> GetComponents() {
         static_assert((std::is_same_v<T, Components> || ...), 
             "Component type not in archetype");
-        return utils::MapValuesToVector(component_maps<T>);
+        return ::utils::MapValuesToVector(component_maps<T>);
     }
 
     // Get the raw pointer to the component pool
