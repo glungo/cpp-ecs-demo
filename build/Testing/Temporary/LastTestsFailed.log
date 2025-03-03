@@ -1,1 +1,9 @@
-3:ComponentTests
+1:test_entity_creation
+2:test_component_creation
+3:test_pool_creation
+4:test_archetype_creation
+5:test_archetype_component_access
+6:test_archetype_entity_iteration
+7:test_basic_entity_creation
+8:test_entity_pool_overflow
+9:test_entity_reuse

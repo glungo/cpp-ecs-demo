@@ -54,7 +54,7 @@ RM = /opt/homebrew/Cellar/cmake/3.28.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo
+CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo/test_app
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/german/cpp-ecs-demo/build
@@ -63,226 +63,344 @@ CMAKE_BINARY_DIR = /Users/german/cpp-ecs-demo/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ecs-demo.dir/all
-all: CMakeFiles/run_tests.dir/all
-all: src/entities/all
+all: CMakeFiles/test_app.dir/all
+all: entities/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: src/entities/preinstall
+preinstall: entities/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ecs-demo.dir/clean
-clean: CMakeFiles/run_tests.dir/clean
-clean: src/entities/clean
+clean: CMakeFiles/test_app.dir/clean
+clean: CMakeFiles/check.dir/clean
+clean: entities/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory src/entities
+# Directory level rules for directory entities
 
 # Recursive "all" directory target.
-src/entities/all: src/entities/CMakeFiles/entities.dir/all
-src/entities/all: src/entities/CMakeFiles/world_tests.dir/all
-src/entities/all: src/entities/CMakeFiles/archetype_tests.dir/all
-src/entities/all: src/entities/CMakeFiles/component_tests.dir/all
-src/entities/all: src/entities/CMakeFiles/entity_manager_tests.dir/all
-.PHONY : src/entities/all
+entities/all: entities/CMakeFiles/test_entity_creation.dir/all
+entities/all: entities/CMakeFiles/test_component_creation.dir/all
+entities/all: entities/CMakeFiles/test_pool_creation.dir/all
+entities/all: entities/CMakeFiles/test_archetype_creation.dir/all
+entities/all: entities/CMakeFiles/test_archetype_component_access.dir/all
+entities/all: entities/CMakeFiles/test_archetype_entity_iteration.dir/all
+entities/all: entities/CMakeFiles/test_basic_entity_creation.dir/all
+entities/all: entities/CMakeFiles/test_entity_pool_overflow.dir/all
+entities/all: entities/CMakeFiles/test_entity_reuse.dir/all
+.PHONY : entities/all
 
 # Recursive "preinstall" directory target.
-src/entities/preinstall:
-.PHONY : src/entities/preinstall
+entities/preinstall:
+.PHONY : entities/preinstall
 
 # Recursive "clean" directory target.
-src/entities/clean: src/entities/CMakeFiles/entities.dir/clean
-src/entities/clean: src/entities/CMakeFiles/world_tests.dir/clean
-src/entities/clean: src/entities/CMakeFiles/archetype_tests.dir/clean
-src/entities/clean: src/entities/CMakeFiles/component_tests.dir/clean
-src/entities/clean: src/entities/CMakeFiles/entity_manager_tests.dir/clean
-.PHONY : src/entities/clean
+entities/clean: entities/CMakeFiles/test_entity_creation.dir/clean
+entities/clean: entities/CMakeFiles/test_component_creation.dir/clean
+entities/clean: entities/CMakeFiles/test_pool_creation.dir/clean
+entities/clean: entities/CMakeFiles/test_archetype_creation.dir/clean
+entities/clean: entities/CMakeFiles/test_archetype_component_access.dir/clean
+entities/clean: entities/CMakeFiles/test_archetype_entity_iteration.dir/clean
+entities/clean: entities/CMakeFiles/test_basic_entity_creation.dir/clean
+entities/clean: entities/CMakeFiles/test_entity_pool_overflow.dir/clean
+entities/clean: entities/CMakeFiles/test_entity_reuse.dir/clean
+.PHONY : entities/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ecs-demo.dir
+# Target rules for target CMakeFiles/test_app.dir
 
 # All Build rule for target.
-CMakeFiles/ecs-demo.dir/all: src/entities/CMakeFiles/entities.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=5,6 "Built target ecs-demo"
-.PHONY : CMakeFiles/ecs-demo.dir/all
+CMakeFiles/test_app.dir/all: CMakeFiles/check.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=2,3 "Built target test_app"
+.PHONY : CMakeFiles/test_app.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ecs-demo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ecs-demo.dir/all
+CMakeFiles/test_app.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 21
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : CMakeFiles/ecs-demo.dir/rule
+.PHONY : CMakeFiles/test_app.dir/rule
 
 # Convenience name for target.
-ecs-demo: CMakeFiles/ecs-demo.dir/rule
-.PHONY : ecs-demo
+test_app: CMakeFiles/test_app.dir/rule
+.PHONY : test_app
 
 # clean rule for target.
-CMakeFiles/ecs-demo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/clean
-.PHONY : CMakeFiles/ecs-demo.dir/clean
+CMakeFiles/test_app.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/clean
+.PHONY : CMakeFiles/test_app.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/run_tests.dir
+# Target rules for target CMakeFiles/check.dir
 
 # All Build rule for target.
-CMakeFiles/run_tests.dir/all: src/entities/CMakeFiles/archetype_tests.dir/all
-CMakeFiles/run_tests.dir/all: src/entities/CMakeFiles/entity_manager_tests.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=11 "Built target run_tests"
-.PHONY : CMakeFiles/run_tests.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_entity_creation.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_component_creation.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_pool_creation.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_archetype_creation.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_archetype_component_access.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_archetype_entity_iteration.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_basic_entity_creation.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_entity_pool_overflow.dir/all
+CMakeFiles/check.dir/all: entities/CMakeFiles/test_entity_reuse.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=1 "Built target check"
+.PHONY : CMakeFiles/check.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
+CMakeFiles/check.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 19
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/check.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : CMakeFiles/run_tests.dir/rule
+.PHONY : CMakeFiles/check.dir/rule
 
 # Convenience name for target.
-run_tests: CMakeFiles/run_tests.dir/rule
-.PHONY : run_tests
+check: CMakeFiles/check.dir/rule
+.PHONY : check
 
 # clean rule for target.
-CMakeFiles/run_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/clean
-.PHONY : CMakeFiles/run_tests.dir/clean
+CMakeFiles/check.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/clean
+.PHONY : CMakeFiles/check.dir/clean
 
 #=============================================================================
-# Target rules for target src/entities/CMakeFiles/entities.dir
+# Target rules for target entities/CMakeFiles/test_entity_creation.dir
 
 # All Build rule for target.
-src/entities/CMakeFiles/entities.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entities.dir/build.make src/entities/CMakeFiles/entities.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entities.dir/build.make src/entities/CMakeFiles/entities.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=7,8 "Built target entities"
-.PHONY : src/entities/CMakeFiles/entities.dir/all
+entities/CMakeFiles/test_entity_creation.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_creation.dir/build.make entities/CMakeFiles/test_entity_creation.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_creation.dir/build.make entities/CMakeFiles/test_entity_creation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=14,15 "Built target test_entity_creation"
+.PHONY : entities/CMakeFiles/test_entity_creation.dir/all
 
 # Build rule for subdir invocation for target.
-src/entities/CMakeFiles/entities.dir/rule: cmake_check_build_system
+entities/CMakeFiles/test_entity_creation.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/entities/CMakeFiles/entities.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_entity_creation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : src/entities/CMakeFiles/entities.dir/rule
+.PHONY : entities/CMakeFiles/test_entity_creation.dir/rule
 
 # Convenience name for target.
-entities: src/entities/CMakeFiles/entities.dir/rule
-.PHONY : entities
+test_entity_creation: entities/CMakeFiles/test_entity_creation.dir/rule
+.PHONY : test_entity_creation
 
 # clean rule for target.
-src/entities/CMakeFiles/entities.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entities.dir/build.make src/entities/CMakeFiles/entities.dir/clean
-.PHONY : src/entities/CMakeFiles/entities.dir/clean
+entities/CMakeFiles/test_entity_creation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_creation.dir/build.make entities/CMakeFiles/test_entity_creation.dir/clean
+.PHONY : entities/CMakeFiles/test_entity_creation.dir/clean
 
 #=============================================================================
-# Target rules for target src/entities/CMakeFiles/world_tests.dir
+# Target rules for target entities/CMakeFiles/test_component_creation.dir
 
 # All Build rule for target.
-src/entities/CMakeFiles/world_tests.dir/all: src/entities/CMakeFiles/entities.dir/all
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/world_tests.dir/build.make src/entities/CMakeFiles/world_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/world_tests.dir/build.make src/entities/CMakeFiles/world_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=12,13 "Built target world_tests"
-.PHONY : src/entities/CMakeFiles/world_tests.dir/all
+entities/CMakeFiles/test_component_creation.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_component_creation.dir/build.make entities/CMakeFiles/test_component_creation.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_component_creation.dir/build.make entities/CMakeFiles/test_component_creation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=12,13 "Built target test_component_creation"
+.PHONY : entities/CMakeFiles/test_component_creation.dir/all
 
 # Build rule for subdir invocation for target.
-src/entities/CMakeFiles/world_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/entities/CMakeFiles/world_tests.dir/all
+entities/CMakeFiles/test_component_creation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_component_creation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : src/entities/CMakeFiles/world_tests.dir/rule
+.PHONY : entities/CMakeFiles/test_component_creation.dir/rule
 
 # Convenience name for target.
-world_tests: src/entities/CMakeFiles/world_tests.dir/rule
-.PHONY : world_tests
+test_component_creation: entities/CMakeFiles/test_component_creation.dir/rule
+.PHONY : test_component_creation
 
 # clean rule for target.
-src/entities/CMakeFiles/world_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/world_tests.dir/build.make src/entities/CMakeFiles/world_tests.dir/clean
-.PHONY : src/entities/CMakeFiles/world_tests.dir/clean
+entities/CMakeFiles/test_component_creation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_component_creation.dir/build.make entities/CMakeFiles/test_component_creation.dir/clean
+.PHONY : entities/CMakeFiles/test_component_creation.dir/clean
 
 #=============================================================================
-# Target rules for target src/entities/CMakeFiles/archetype_tests.dir
+# Target rules for target entities/CMakeFiles/test_pool_creation.dir
 
 # All Build rule for target.
-src/entities/CMakeFiles/archetype_tests.dir/all: src/entities/CMakeFiles/entities.dir/all
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/archetype_tests.dir/build.make src/entities/CMakeFiles/archetype_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/archetype_tests.dir/build.make src/entities/CMakeFiles/archetype_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=1,2 "Built target archetype_tests"
-.PHONY : src/entities/CMakeFiles/archetype_tests.dir/all
+entities/CMakeFiles/test_pool_creation.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_pool_creation.dir/build.make entities/CMakeFiles/test_pool_creation.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_pool_creation.dir/build.make entities/CMakeFiles/test_pool_creation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=20,21 "Built target test_pool_creation"
+.PHONY : entities/CMakeFiles/test_pool_creation.dir/all
 
 # Build rule for subdir invocation for target.
-src/entities/CMakeFiles/archetype_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/entities/CMakeFiles/archetype_tests.dir/all
+entities/CMakeFiles/test_pool_creation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_pool_creation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : src/entities/CMakeFiles/archetype_tests.dir/rule
+.PHONY : entities/CMakeFiles/test_pool_creation.dir/rule
 
 # Convenience name for target.
-archetype_tests: src/entities/CMakeFiles/archetype_tests.dir/rule
-.PHONY : archetype_tests
+test_pool_creation: entities/CMakeFiles/test_pool_creation.dir/rule
+.PHONY : test_pool_creation
 
 # clean rule for target.
-src/entities/CMakeFiles/archetype_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/archetype_tests.dir/build.make src/entities/CMakeFiles/archetype_tests.dir/clean
-.PHONY : src/entities/CMakeFiles/archetype_tests.dir/clean
+entities/CMakeFiles/test_pool_creation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_pool_creation.dir/build.make entities/CMakeFiles/test_pool_creation.dir/clean
+.PHONY : entities/CMakeFiles/test_pool_creation.dir/clean
 
 #=============================================================================
-# Target rules for target src/entities/CMakeFiles/component_tests.dir
+# Target rules for target entities/CMakeFiles/test_archetype_creation.dir
 
 # All Build rule for target.
-src/entities/CMakeFiles/component_tests.dir/all: src/entities/CMakeFiles/entities.dir/all
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/component_tests.dir/build.make src/entities/CMakeFiles/component_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/component_tests.dir/build.make src/entities/CMakeFiles/component_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=3,4 "Built target component_tests"
-.PHONY : src/entities/CMakeFiles/component_tests.dir/all
+entities/CMakeFiles/test_archetype_creation.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_creation.dir/build.make entities/CMakeFiles/test_archetype_creation.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_creation.dir/build.make entities/CMakeFiles/test_archetype_creation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=6,7 "Built target test_archetype_creation"
+.PHONY : entities/CMakeFiles/test_archetype_creation.dir/all
 
 # Build rule for subdir invocation for target.
-src/entities/CMakeFiles/component_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/entities/CMakeFiles/component_tests.dir/all
+entities/CMakeFiles/test_archetype_creation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_archetype_creation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : src/entities/CMakeFiles/component_tests.dir/rule
+.PHONY : entities/CMakeFiles/test_archetype_creation.dir/rule
 
 # Convenience name for target.
-component_tests: src/entities/CMakeFiles/component_tests.dir/rule
-.PHONY : component_tests
+test_archetype_creation: entities/CMakeFiles/test_archetype_creation.dir/rule
+.PHONY : test_archetype_creation
 
 # clean rule for target.
-src/entities/CMakeFiles/component_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/component_tests.dir/build.make src/entities/CMakeFiles/component_tests.dir/clean
-.PHONY : src/entities/CMakeFiles/component_tests.dir/clean
+entities/CMakeFiles/test_archetype_creation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_creation.dir/build.make entities/CMakeFiles/test_archetype_creation.dir/clean
+.PHONY : entities/CMakeFiles/test_archetype_creation.dir/clean
 
 #=============================================================================
-# Target rules for target src/entities/CMakeFiles/entity_manager_tests.dir
+# Target rules for target entities/CMakeFiles/test_archetype_component_access.dir
 
 # All Build rule for target.
-src/entities/CMakeFiles/entity_manager_tests.dir/all: src/entities/CMakeFiles/entities.dir/all
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entity_manager_tests.dir/build.make src/entities/CMakeFiles/entity_manager_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entity_manager_tests.dir/build.make src/entities/CMakeFiles/entity_manager_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=9,10 "Built target entity_manager_tests"
-.PHONY : src/entities/CMakeFiles/entity_manager_tests.dir/all
+entities/CMakeFiles/test_archetype_component_access.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_component_access.dir/build.make entities/CMakeFiles/test_archetype_component_access.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_component_access.dir/build.make entities/CMakeFiles/test_archetype_component_access.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=4,5 "Built target test_archetype_component_access"
+.PHONY : entities/CMakeFiles/test_archetype_component_access.dir/all
 
 # Build rule for subdir invocation for target.
-src/entities/CMakeFiles/entity_manager_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/entities/CMakeFiles/entity_manager_tests.dir/all
+entities/CMakeFiles/test_archetype_component_access.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_archetype_component_access.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
-.PHONY : src/entities/CMakeFiles/entity_manager_tests.dir/rule
+.PHONY : entities/CMakeFiles/test_archetype_component_access.dir/rule
 
 # Convenience name for target.
-entity_manager_tests: src/entities/CMakeFiles/entity_manager_tests.dir/rule
-.PHONY : entity_manager_tests
+test_archetype_component_access: entities/CMakeFiles/test_archetype_component_access.dir/rule
+.PHONY : test_archetype_component_access
 
 # clean rule for target.
-src/entities/CMakeFiles/entity_manager_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entity_manager_tests.dir/build.make src/entities/CMakeFiles/entity_manager_tests.dir/clean
-.PHONY : src/entities/CMakeFiles/entity_manager_tests.dir/clean
+entities/CMakeFiles/test_archetype_component_access.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_component_access.dir/build.make entities/CMakeFiles/test_archetype_component_access.dir/clean
+.PHONY : entities/CMakeFiles/test_archetype_component_access.dir/clean
+
+#=============================================================================
+# Target rules for target entities/CMakeFiles/test_archetype_entity_iteration.dir
+
+# All Build rule for target.
+entities/CMakeFiles/test_archetype_entity_iteration.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make entities/CMakeFiles/test_archetype_entity_iteration.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make entities/CMakeFiles/test_archetype_entity_iteration.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=8,9 "Built target test_archetype_entity_iteration"
+.PHONY : entities/CMakeFiles/test_archetype_entity_iteration.dir/all
+
+# Build rule for subdir invocation for target.
+entities/CMakeFiles/test_archetype_entity_iteration.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_archetype_entity_iteration.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
+.PHONY : entities/CMakeFiles/test_archetype_entity_iteration.dir/rule
+
+# Convenience name for target.
+test_archetype_entity_iteration: entities/CMakeFiles/test_archetype_entity_iteration.dir/rule
+.PHONY : test_archetype_entity_iteration
+
+# clean rule for target.
+entities/CMakeFiles/test_archetype_entity_iteration.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make entities/CMakeFiles/test_archetype_entity_iteration.dir/clean
+.PHONY : entities/CMakeFiles/test_archetype_entity_iteration.dir/clean
+
+#=============================================================================
+# Target rules for target entities/CMakeFiles/test_basic_entity_creation.dir
+
+# All Build rule for target.
+entities/CMakeFiles/test_basic_entity_creation.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_basic_entity_creation.dir/build.make entities/CMakeFiles/test_basic_entity_creation.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_basic_entity_creation.dir/build.make entities/CMakeFiles/test_basic_entity_creation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=10,11 "Built target test_basic_entity_creation"
+.PHONY : entities/CMakeFiles/test_basic_entity_creation.dir/all
+
+# Build rule for subdir invocation for target.
+entities/CMakeFiles/test_basic_entity_creation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_basic_entity_creation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
+.PHONY : entities/CMakeFiles/test_basic_entity_creation.dir/rule
+
+# Convenience name for target.
+test_basic_entity_creation: entities/CMakeFiles/test_basic_entity_creation.dir/rule
+.PHONY : test_basic_entity_creation
+
+# clean rule for target.
+entities/CMakeFiles/test_basic_entity_creation.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_basic_entity_creation.dir/build.make entities/CMakeFiles/test_basic_entity_creation.dir/clean
+.PHONY : entities/CMakeFiles/test_basic_entity_creation.dir/clean
+
+#=============================================================================
+# Target rules for target entities/CMakeFiles/test_entity_pool_overflow.dir
+
+# All Build rule for target.
+entities/CMakeFiles/test_entity_pool_overflow.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_pool_overflow.dir/build.make entities/CMakeFiles/test_entity_pool_overflow.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_pool_overflow.dir/build.make entities/CMakeFiles/test_entity_pool_overflow.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=16,17 "Built target test_entity_pool_overflow"
+.PHONY : entities/CMakeFiles/test_entity_pool_overflow.dir/all
+
+# Build rule for subdir invocation for target.
+entities/CMakeFiles/test_entity_pool_overflow.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_entity_pool_overflow.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
+.PHONY : entities/CMakeFiles/test_entity_pool_overflow.dir/rule
+
+# Convenience name for target.
+test_entity_pool_overflow: entities/CMakeFiles/test_entity_pool_overflow.dir/rule
+.PHONY : test_entity_pool_overflow
+
+# clean rule for target.
+entities/CMakeFiles/test_entity_pool_overflow.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_pool_overflow.dir/build.make entities/CMakeFiles/test_entity_pool_overflow.dir/clean
+.PHONY : entities/CMakeFiles/test_entity_pool_overflow.dir/clean
+
+#=============================================================================
+# Target rules for target entities/CMakeFiles/test_entity_reuse.dir
+
+# All Build rule for target.
+entities/CMakeFiles/test_entity_reuse.dir/all:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_reuse.dir/build.make entities/CMakeFiles/test_entity_reuse.dir/depend
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_reuse.dir/build.make entities/CMakeFiles/test_entity_reuse.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/german/cpp-ecs-demo/build/CMakeFiles --progress-num=18,19 "Built target test_entity_reuse"
+.PHONY : entities/CMakeFiles/test_entity_reuse.dir/all
+
+# Build rule for subdir invocation for target.
+entities/CMakeFiles/test_entity_reuse.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities/CMakeFiles/test_entity_reuse.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/german/cpp-ecs-demo/build/CMakeFiles 0
+.PHONY : entities/CMakeFiles/test_entity_reuse.dir/rule
+
+# Convenience name for target.
+test_entity_reuse: entities/CMakeFiles/test_entity_reuse.dir/rule
+.PHONY : test_entity_reuse
+
+# clean rule for target.
+entities/CMakeFiles/test_entity_reuse.dir/clean:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_reuse.dir/build.make entities/CMakeFiles/test_entity_reuse.dir/clean
+.PHONY : entities/CMakeFiles/test_entity_reuse.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

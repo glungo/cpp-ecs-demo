@@ -1,5 +1,13 @@
-WorldTests 44 0.00336967
-ArchetypeTests 20 0.00795762
-EntityManagerTests 15 0.00954431
-ComponentTests 6 0.0286033
+EntityManagerTests 2 0
+ArchetypeTests 3 0.000988278
+WorldTests 3 0.00115508
+test_entity_creation 1 0.397452
+test_component_creation 1 0.184059
+test_pool_creation 1 0.181185
+test_archetype_creation 1 0.19398
+test_archetype_component_access 1 0.19
+test_archetype_entity_iteration 1 0.18133
+test_basic_entity_creation 1 0.170719
+test_entity_pool_overflow 1 0.174082
+test_entity_reuse 1 0.184758
 ---

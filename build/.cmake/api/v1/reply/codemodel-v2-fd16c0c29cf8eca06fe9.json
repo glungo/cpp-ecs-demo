@@ -1,0 +1,169 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "entities",
+					"jsonFile" : "directory-entities-60e0038934d813234557.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/Users/german/cpp-ecs-demo/entities",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "EntityComponentSystem",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "check::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check-2b684ac5b479956a07f3.json",
+					"name" : "check",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_app::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_app-83c63583b76a912743e3.json",
+					"name" : "test_app",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_archetype_component_access::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_archetype_component_access-98abe727b15c2bec54c9.json",
+					"name" : "test_archetype_component_access",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_archetype_creation::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_archetype_creation-62847c9c5f6b0cc96454.json",
+					"name" : "test_archetype_creation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_archetype_entity_iteration::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_archetype_entity_iteration-f5a9eaec55d5a39a4335.json",
+					"name" : "test_archetype_entity_iteration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_basic_entity_creation::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_basic_entity_creation-2ba5b7d61fe111fa2102.json",
+					"name" : "test_basic_entity_creation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_component_creation::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_component_creation-02e7362ebc16fd7894a1.json",
+					"name" : "test_component_creation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_entity_creation::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_entity_creation-e2835bf5216f11c7c6b2.json",
+					"name" : "test_entity_creation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_entity_pool_overflow::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_entity_pool_overflow-46276073476d75e4d679.json",
+					"name" : "test_entity_pool_overflow",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_entity_reuse::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_entity_reuse-1fd0850ad0e285eba615.json",
+					"name" : "test_entity_reuse",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test_pool_creation::@4d876683e362dbddf06a",
+					"jsonFile" : "target-test_pool_creation-16c6aaf8e84fda7e7f33.json",
+					"name" : "test_pool_creation",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/german/cpp-ecs-demo/build",
+		"source" : "/Users/german/cpp-ecs-demo/test_app"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

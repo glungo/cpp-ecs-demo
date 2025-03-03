@@ -57,7 +57,7 @@ RM = /opt/homebrew/Cellar/cmake/3.28.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo
+CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo/test_app
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/german/cpp-ecs-demo/build
@@ -127,102 +127,154 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ecs-demo
+# Target rules for targets named test_app
 
 # Build rule for target.
-ecs-demo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ecs-demo
-.PHONY : ecs-demo
+test_app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_app
+.PHONY : test_app
 
 # fast build rule for target.
-ecs-demo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/build
-.PHONY : ecs-demo/fast
+test_app/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/build
+.PHONY : test_app/fast
 
 #=============================================================================
-# Target rules for targets named run_tests
+# Target rules for targets named check
 
 # Build rule for target.
-run_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_tests
-.PHONY : run_tests
+check: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check
+.PHONY : check
 
 # fast build rule for target.
-run_tests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-.PHONY : run_tests/fast
+check/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
+.PHONY : check/fast
 
 #=============================================================================
-# Target rules for targets named entities
+# Target rules for targets named test_entity_creation
 
 # Build rule for target.
-entities: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entities
-.PHONY : entities
+test_entity_creation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_entity_creation
+.PHONY : test_entity_creation
 
 # fast build rule for target.
-entities/fast:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entities.dir/build.make src/entities/CMakeFiles/entities.dir/build
-.PHONY : entities/fast
+test_entity_creation/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_creation.dir/build.make entities/CMakeFiles/test_entity_creation.dir/build
+.PHONY : test_entity_creation/fast
 
 #=============================================================================
-# Target rules for targets named world_tests
+# Target rules for targets named test_component_creation
 
 # Build rule for target.
-world_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 world_tests
-.PHONY : world_tests
+test_component_creation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_component_creation
+.PHONY : test_component_creation
 
 # fast build rule for target.
-world_tests/fast:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/world_tests.dir/build.make src/entities/CMakeFiles/world_tests.dir/build
-.PHONY : world_tests/fast
+test_component_creation/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_component_creation.dir/build.make entities/CMakeFiles/test_component_creation.dir/build
+.PHONY : test_component_creation/fast
 
 #=============================================================================
-# Target rules for targets named archetype_tests
+# Target rules for targets named test_pool_creation
 
 # Build rule for target.
-archetype_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 archetype_tests
-.PHONY : archetype_tests
+test_pool_creation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_pool_creation
+.PHONY : test_pool_creation
 
 # fast build rule for target.
-archetype_tests/fast:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/archetype_tests.dir/build.make src/entities/CMakeFiles/archetype_tests.dir/build
-.PHONY : archetype_tests/fast
+test_pool_creation/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_pool_creation.dir/build.make entities/CMakeFiles/test_pool_creation.dir/build
+.PHONY : test_pool_creation/fast
 
 #=============================================================================
-# Target rules for targets named component_tests
+# Target rules for targets named test_archetype_creation
 
 # Build rule for target.
-component_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 component_tests
-.PHONY : component_tests
+test_archetype_creation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_archetype_creation
+.PHONY : test_archetype_creation
 
 # fast build rule for target.
-component_tests/fast:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/component_tests.dir/build.make src/entities/CMakeFiles/component_tests.dir/build
-.PHONY : component_tests/fast
+test_archetype_creation/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_creation.dir/build.make entities/CMakeFiles/test_archetype_creation.dir/build
+.PHONY : test_archetype_creation/fast
 
 #=============================================================================
-# Target rules for targets named entity_manager_tests
+# Target rules for targets named test_archetype_component_access
 
 # Build rule for target.
-entity_manager_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 entity_manager_tests
-.PHONY : entity_manager_tests
+test_archetype_component_access: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_archetype_component_access
+.PHONY : test_archetype_component_access
 
 # fast build rule for target.
-entity_manager_tests/fast:
-	$(MAKE) $(MAKESILENT) -f src/entities/CMakeFiles/entity_manager_tests.dir/build.make src/entities/CMakeFiles/entity_manager_tests.dir/build
-.PHONY : entity_manager_tests/fast
+test_archetype_component_access/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_component_access.dir/build.make entities/CMakeFiles/test_archetype_component_access.dir/build
+.PHONY : test_archetype_component_access/fast
+
+#=============================================================================
+# Target rules for targets named test_archetype_entity_iteration
+
+# Build rule for target.
+test_archetype_entity_iteration: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_archetype_entity_iteration
+.PHONY : test_archetype_entity_iteration
+
+# fast build rule for target.
+test_archetype_entity_iteration/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make entities/CMakeFiles/test_archetype_entity_iteration.dir/build
+.PHONY : test_archetype_entity_iteration/fast
+
+#=============================================================================
+# Target rules for targets named test_basic_entity_creation
+
+# Build rule for target.
+test_basic_entity_creation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_basic_entity_creation
+.PHONY : test_basic_entity_creation
+
+# fast build rule for target.
+test_basic_entity_creation/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_basic_entity_creation.dir/build.make entities/CMakeFiles/test_basic_entity_creation.dir/build
+.PHONY : test_basic_entity_creation/fast
+
+#=============================================================================
+# Target rules for targets named test_entity_pool_overflow
+
+# Build rule for target.
+test_entity_pool_overflow: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_entity_pool_overflow
+.PHONY : test_entity_pool_overflow
+
+# fast build rule for target.
+test_entity_pool_overflow/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_pool_overflow.dir/build.make entities/CMakeFiles/test_entity_pool_overflow.dir/build
+.PHONY : test_entity_pool_overflow/fast
+
+#=============================================================================
+# Target rules for targets named test_entity_reuse
+
+# Build rule for target.
+test_entity_reuse: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_entity_reuse
+.PHONY : test_entity_reuse
+
+# fast build rule for target.
+test_entity_reuse/fast:
+	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_reuse.dir/build.make entities/CMakeFiles/test_entity_reuse.dir/build
+.PHONY : test_entity_reuse/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -230,7 +282,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -238,7 +290,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecs-demo.dir/build.make CMakeFiles/ecs-demo.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -250,13 +302,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... run_tests"
-	@echo "... archetype_tests"
-	@echo "... component_tests"
-	@echo "... ecs-demo"
-	@echo "... entities"
-	@echo "... entity_manager_tests"
-	@echo "... world_tests"
+	@echo "... check"
+	@echo "... test_app"
+	@echo "... test_archetype_component_access"
+	@echo "... test_archetype_creation"
+	@echo "... test_archetype_entity_iteration"
+	@echo "... test_basic_entity_creation"
+	@echo "... test_component_creation"
+	@echo "... test_entity_creation"
+	@echo "... test_entity_pool_overflow"
+	@echo "... test_entity_reuse"
+	@echo "... test_pool_creation"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

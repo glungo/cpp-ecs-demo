@@ -7,12 +7,10 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/german/cpp-ecs-demo/CMakeLists.txt"
-  "CMakeFiles/3.28.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
-  "/Users/german/cpp-ecs-demo/src/entities/CMakeLists.txt"
-  "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeCInformation.cmake"
+  "/Users/german/cpp-ecs-demo/entities/CMakeLists.txt"
+  "/Users/german/cpp-ecs-demo/test_app/CMakeLists.txt"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeGenericSystem.cmake"
@@ -20,14 +18,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeLanguageInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
-  "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Compiler/AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Compiler/Clang.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Compiler/GNU.cmake"
-  "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake"
-  "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Apple-Clang.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
@@ -44,16 +39,20 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/entities/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "entities/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ecs-demo.dir/DependInfo.cmake"
-  "CMakeFiles/run_tests.dir/DependInfo.cmake"
-  "src/entities/CMakeFiles/entities.dir/DependInfo.cmake"
-  "src/entities/CMakeFiles/world_tests.dir/DependInfo.cmake"
-  "src/entities/CMakeFiles/archetype_tests.dir/DependInfo.cmake"
-  "src/entities/CMakeFiles/component_tests.dir/DependInfo.cmake"
-  "src/entities/CMakeFiles/entity_manager_tests.dir/DependInfo.cmake"
+  "CMakeFiles/test_app.dir/DependInfo.cmake"
+  "CMakeFiles/check.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_entity_creation.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_component_creation.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_pool_creation.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_archetype_creation.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_archetype_component_access.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_archetype_entity_iteration.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_basic_entity_creation.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_entity_pool_overflow.dir/DependInfo.cmake"
+  "entities/CMakeFiles/test_entity_reuse.dir/DependInfo.cmake"
   )

@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -Werror -fsanitize=address -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/entity_manager_tests.dir/tests/entity_manager_tests.cpp.o -o entity_manager_tests  libentities.a 
