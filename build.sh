@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#clear console
+clear
+
 # Exit on any error
 set -e
 

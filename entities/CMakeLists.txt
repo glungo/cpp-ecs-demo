@@ -11,7 +11,6 @@ set_property(GLOBAL PROPERTY ENTITIES_TEST_TARGETS "")
 # Only build tests if BUILD_TESTS is ON
 if(BUILD_TESTS)
     enable_testing()
-
     # Function to add a test
     function(add_entities_test test_name)
         add_executable(${test_name} 
@@ -22,7 +21,15 @@ if(BUILD_TESTS)
             ${CMAKE_CURRENT_SOURCE_DIR}
             ${CMAKE_CURRENT_SOURCE_DIR}/..
         )
-        add_test(NAME ${test_name} COMMAND ${test_name})
+        
+        # Configure test to show output
+        add_test(
+            NAME ${test_name} 
+            COMMAND ${test_name}
+        )
+        set_tests_properties(${test_name} PROPERTIES
+            ENVIRONMENT "CTEST_OUTPUT_ON_FAILURE=1"
+        )
         
         # Add the test target to our list
         get_property(TEST_TARGETS GLOBAL PROPERTY ENTITIES_TEST_TARGETS)
@@ -40,4 +47,5 @@ if(BUILD_TESTS)
     add_entities_test(test_basic_entity_creation)
     add_entities_test(test_entity_pool_overflow)
     add_entities_test(test_entity_reuse)
+    add_entities_test(test_job_create)
 endif()

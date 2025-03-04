@@ -34,13 +34,19 @@ target_include_directories(test_app PRIVATE
 if (BUILD_TESTS)
     # Get list of all test targets from entities
     get_property(TEST_TARGETS GLOBAL PROPERTY ENTITIES_TEST_TARGETS)
+    set(address_sanitizer_flag "-fsanitize=address")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${address_sanitizer_flag}")
     
-    # Add a custom target that builds and runs tests
+    # Configure CTest to show output
+    set(CTEST_OUTPUT_ON_FAILURE ON)
+    set(CTEST_VERBOSE ON)
+    
+    # Add a custom target that builds and runs tests with output
     add_custom_target(check
-        COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+        COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure --verbose
         DEPENDS ${TEST_TARGETS}
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        COMMENT "Building and running tests..."
+        COMMENT "Building and running tests with output..."
     )
 
     # Make tests run as part of the default build
