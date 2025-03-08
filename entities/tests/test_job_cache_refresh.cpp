@@ -64,7 +64,7 @@ void test_cache_refresh() {
     job->SetTestCache(components);
     
     // Schedule the job
-    scheduler.ScheduleJob(std::move(job));
+    scheduler.ScheduleJob(std::move(static_cast<JobBase*>(job.release())));
     
     // Wait for job to complete
     std::this_thread::sleep_for(std::chrono::milliseconds(100));

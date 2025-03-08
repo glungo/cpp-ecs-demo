@@ -56,7 +56,7 @@ void test_multiple_jobs() {
             }
         );
         
-        scheduler.ScheduleJob(std::move(job));
+        scheduler.ScheduleJob(std::move(static_cast<JobBase*>(job.release())));
     }
     
     // Wait for all jobs to complete

@@ -59,7 +59,7 @@ void test_parallel_execution() {
             }
         );
         
-        scheduler.ScheduleJob(std::move(job));
+        scheduler.ScheduleJob(std::move(static_cast<JobBase*>(job.release())));
     }
     
     // Measure execution time

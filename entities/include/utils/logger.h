@@ -1,5 +1,5 @@
+#pragma once
 #include <iostream>
-
 namespace entities {
 namespace utils {
     class Logger {
@@ -12,22 +12,24 @@ namespace utils {
         };
 
         static void log(const std::string& message, WARN_LEVEL warn_level = WARN_LEVEL::INFO) {
-            #ifdef ENTITIES_DEBUG
             switch (warn_level) {
                 case WARN_LEVEL::INFO:
                     std::cout << "[Entities][INFO] " << message << std::endl;
+                    std::cout.flush();
                     break;
                 case WARN_LEVEL::WARN:
                     std::cerr << "[Entities][WARN] " << message << std::endl;
+                    std::cerr.flush();
                     break;
                 case WARN_LEVEL::ERROR:
                     std::cerr << "[Entities][ERROR] " << message << std::endl;
+                    std::cerr.flush();
                     break;
                 case WARN_LEVEL::FATAL:
                     std::cerr << "[Entities][FATAL] " << message << std::endl;
+                    std::cerr.flush();
                     break;
             }
-            #endif
         }
         private:
             Logger() = delete;  

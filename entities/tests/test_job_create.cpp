@@ -22,6 +22,18 @@ namespace JobSystem
             COMPONENT_MEMBER(float, vz) = 1.0f;
         END_COMPONENT
 
+        class TestJob : public Job<PositionComponent, VelocityComponent> {
+            public:
+                TestJob() : Job<PositionComponent, VelocityComponent>("TestJob", [](float dt, JobCache<PositionComponent, VelocityComponent> cache) {
+                    for (auto &tuple : cache) {
+                        auto [pos, vel] = tuple;
+                        pos->x += vel->vx * dt;
+                        pos->y += vel->vy * dt;
+                        pos->z += vel->vz * dt;
+                    }
+                }) {}
+        };
+
         void test_job_create()
         {
             PositionComponent *pos = PositionComponent::Create();
@@ -31,17 +43,7 @@ namespace JobSystem
                 std::make_tuple(pos, vel)
             };
 
-            Job<PositionComponent, VelocityComponent> job("TestJob",
-                               [](float dt, JobCache<PositionComponent, VelocityComponent> cache)
-                               {
-                                   for (auto &tuple : cache)
-                                   {
-                                       auto [pos, vel] = tuple;
-                                       pos->x += vel->vx * dt;
-                                       pos->y += vel->vy * dt;
-                                       pos->z += vel->vz * dt;
-                                   }
-                               });
+            TestJob job;
             job.SetCache(cache);
             job.Execute(1.0f);
             

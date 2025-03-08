@@ -7,7 +7,8 @@ target_include_directories(entities INTERFACE
 
 # Create a property to store test targets
 set_property(GLOBAL PROPERTY ENTITIES_TEST_TARGETS "")
-
+set(address_sanitizer_flag "-fsanitize=address")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${address_sanitizer_flag}")
 # Only build tests if BUILD_TESTS is ON
 if(BUILD_TESTS)
     enable_testing()
@@ -51,4 +52,5 @@ if(BUILD_TESTS)
     add_entities_test(test_job_parallel_execution)
     add_entities_test(test_job_cache_refresh)
     add_entities_test(test_job_multiple)
+    add_entities_test(test_job_scheduler)
 endif()
