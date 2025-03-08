@@ -20,9 +20,7 @@ public:
     MockJob() : Job<MockComponent>("MockJob", 
         [](float dt, const std::vector<std::tuple<MockComponent*>>& components) {
             for (auto& component : components) {
-                std::cout << "MockJob: " << std::get<0>(component)->m_value << std::endl;
                 std::get<0>(component)->m_value += 1;
-                std::cout << "MockJob: " << std::get<0>(component)->m_value << std::endl;
             }
         }
     ) {}
@@ -30,7 +28,6 @@ public:
     virtual void RefreshCache() override {
         auto components = MockComponent::GetAll();
         m_cache = std::vector<std::tuple<MockComponent*>>(components.begin(), components.end());
-        std::cout << "Refreshed cache for MockJob" << " with " << m_cache.size() << " components" << std::endl;
     }
 
     bool IsCompleted() const { return m_completed; }
@@ -38,28 +35,6 @@ public:
     
 private:
     bool m_completed;
-};
-
-// Mock system for testing
-class MockSystem : public System<MockComponent> {
-public:
-    MockSystem(JobScheduler& scheduler) 
-        : System<MockComponent>(scheduler), 
-          m_jobsCreated(false), 
-          m_jobsCompleted(false) {}
-    
-    void CreateJobs() override {
-        m_jobsCreated = true;
-        // Create some mock jobs
-        // each job increments the value of the mock component by 1
-        m_mockJobs.push_back(std::make_unique<MockJob>());
-        
-    }
-    
-private:
-    bool m_jobsCreated;
-    bool m_jobsCompleted;
-    std::vector<std::unique_ptr<MockJob>> m_mockJobs;
 };
 
 // Test that the OnJobsCompleted signal is emitted when all jobs are completed
@@ -82,8 +57,10 @@ void TestOnJobsCompletedSignalEmitted() {
     });
     
     // Schedule a job
-    auto job = std::make_unique<MockJob>();
-    scheduler.ScheduleJob(std::move(static_cast<JobBase*>(job.release())));
+    for(int i = 0; i < 20; i++) {
+        auto job = std::make_unique<MockJob>();
+        scheduler.ScheduleJob(std::move(static_cast<JobBase*>(job.release())));
+    }
     
     // Initially, the signal should not have been emitted
     assert(!signalReceived && "Signal should not be received before job completion");
@@ -91,6 +68,12 @@ void TestOnJobsCompletedSignalEmitted() {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     // Now the signal should have been emitted
     assert(signalReceived && "Signal should be received after job completion");
+    for(auto& component : MockComponent::GetAll()) {
+        assert(component->m_value == 20 && "Component value should be 20");
+    }
+    for(auto& component : MockComponent2::GetAll()) {
+        assert(component->m_value2 == 0 && "Component value should be 0");
+    }
 }
 
 } // namespace JobSystem

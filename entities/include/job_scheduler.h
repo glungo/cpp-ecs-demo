@@ -83,23 +83,16 @@ public:
         {
             std::lock_guard<std::mutex> lock(m_queueMutex);
             m_running = false;
-            std::cout << "[JOB SCHEDULER] Stopping" << std::endl;
         }
         m_condition.notify_all();
-        std::cout << "[JOB SCHEDULER] Notified all threads" << std::endl;
         for (auto& thread : m_threads) {
             if (thread.joinable()) {
                 thread.join();
             }
-            else {
-                std::cout << "[JOB SCHEDULER] Thread not joinable" << std::endl;
-            }
         }
-        std::cout << "[JOB SCHEDULER] Joined all threads" << std::endl;
 
         // Clear all signal connections to prevent callbacks to destroyed objects
         OnJobsCompleted.disconnectAll();
-        std::cout << "[JOB SCHEDULER] Disconnected all signals" << std::endl;
 
         // Clear all jobs
         {
@@ -110,12 +103,9 @@ public:
         //clear the job queue
         std::queue<std::unique_ptr<JobBase>> emptyQueue;
         std::swap(m_jobQueue, emptyQueue);
-        std::cout << "[JOB SCHEDULER] Cleared job queue" << std::endl;
         //clear the completed jobs
         std::queue<std::unique_ptr<JobBase>> emptyCompletedQueue;
         std::swap(m_completedJobs, emptyCompletedQueue);
-        std::cout << "[JOB SCHEDULER] Cleared completed jobs" << std::endl;
-        std::cout << "[JOB SCHEDULER] Destructor finished" << std::endl;
     }
 
     // Schedule a job for execution
@@ -190,7 +180,6 @@ private:
             
             {
                 std::unique_lock<std::mutex> lock(m_queueMutex);
-                std::cout << "[WORKER THREAD] Waiting for job" << std::endl;
                 m_condition.wait(lock, [this] { 
                     return !m_running || !m_jobQueue.empty(); 
                 });
@@ -198,14 +187,11 @@ private:
                 if (!m_running && m_jobQueue.empty()) {
                     return;
                 }
-                std::cout << "[WORKER THREAD] Got job" << std::endl;
                 // wait for all dependencies to be met
                 if (!m_jobQueue.front()->DependenciesMet())
                 {
-                    std::cout << "[WORKER THREAD] Dependencies not met" << std::endl;
                     return;
                 }
-                std::cout << "[WORKER THREAD] Dependencies met" << std::endl;
                 job = std::move(m_jobQueue.front());
                 // Refresh the job's cache before scheduling
                 job->RefreshCache();

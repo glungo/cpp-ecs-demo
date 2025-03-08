@@ -78,7 +78,6 @@ public:
 
     void Execute(float dt) override 
     {
-        std::cout << "[JOB] Executing job" << std::endl;
         m_function(dt, m_cache);
     }
 

@@ -61,7 +61,6 @@ namespace JobSystem {
             
         protected:
             JobScheduler& m_scheduler;
-            bool m_canRunInParallel = false;
             std::vector<System*> m_dependencies;
             bool m_isRunning;
             std::vector<Job<Components...>*> m_jobs;
