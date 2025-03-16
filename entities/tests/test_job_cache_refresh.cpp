@@ -5,8 +5,7 @@
 #include <iostream>
 #include "include/job.h"
 #include "include/job_scheduler.h"
-#include "include/utils/logger.h"
-
+#include "include/utils/LogMacros.h"
 namespace JobSystem {
 namespace tests {
 
@@ -42,7 +41,7 @@ private:
 
 // Test that job cache is refreshed before execution
 void test_cache_refresh() {
-    entities::utils::Logger::log("Testing job cache refresh", entities::utils::Logger::WARN_LEVEL::INFO);
+    LOG << "Testing job cache refresh" << LOG_END;
     
     JobScheduler scheduler(1); // Single thread for predictable execution
     
@@ -78,6 +77,6 @@ void test_cache_refresh() {
 
 int main() {
     JobSystem::tests::test_cache_refresh();
-    std::cout << "Cache refresh test passed!" << std::endl;
+    LOG << "Cache refresh test passed!" << LOG_END;
     return 0;
 } 

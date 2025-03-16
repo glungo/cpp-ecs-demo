@@ -3,7 +3,8 @@
 #include <map>
 #include <iostream>
 #include <cstdlib> // For malloc
-#include "utils/logger.h"
+#include "utils/LogMacros.h"
+using namespace Logging;
 namespace entities {
 
 template<typename T>
@@ -27,18 +28,12 @@ public:
 
     template<typename... Args>
     T* Create(Args&&... args) {
-        utils::Logger::log("Creating item with args. first_free_index: " +
-         std::to_string(first_free_index) + ", first_unallocated_index: " +
-          std::to_string(first_unallocated_index) + ", active_items.size(): " +
-           std::to_string(active_items.size()), utils::Logger::WARN_LEVEL::INFO);
-        
         T* new_item = nullptr;
         
         // Check if we have free slots before the unallocated area
         if (first_free_index < first_unallocated_index) {
             // Reuse a previously freed slot
             new_item = &memory_pool[first_free_index];
-            utils::Logger::log("Reusing item", utils::Logger::WARN_LEVEL::INFO);
             // Construct the item in place with arguments
             new (new_item) T(std::forward<Args>(args)...);
             
@@ -51,9 +46,6 @@ public:
                    active_items.find(first_free_index) != active_items.end()) {
                 first_free_index++;
             }
-            
-            utils::Logger::log("Reused item at index " + std::to_string(first_free_index - 1),
-             utils::Logger::WARN_LEVEL::INFO);
         } 
         else if (first_unallocated_index < pool_size) {
             // Use an unallocated slot
@@ -68,30 +60,21 @@ public:
             // Update indices
             first_free_index = first_unallocated_index + 1;
             first_unallocated_index++;
-            
-            utils::Logger::log("Created new item at index " + std::to_string(first_unallocated_index - 1),
-             utils::Logger::WARN_LEVEL::INFO);
         } 
         else {
-            utils::Logger::log("Pool is full", utils::Logger::WARN_LEVEL::INFO);
+            LOG_WARNING << "Pool is full" << LOG_END;
         }
         
         return new_item;
     }
 
     T* Create() {
-        utils::Logger::log("Creating item. first_free_index: " + std::to_string(first_free_index) +
-         ", first_unallocated_index: " + std::to_string(first_unallocated_index) +
-          ", active_items.size(): " + std::to_string(active_items.size()),
-           utils::Logger::WARN_LEVEL::INFO);
-        
         T* new_item = nullptr;
         
         // Check if we have free slots before the unallocated area
         if (first_free_index < first_unallocated_index) {
             // Reuse a previously freed slot
             new_item = &memory_pool[first_free_index];
-            utils::Logger::log("Reusing item", utils::Logger::WARN_LEVEL::INFO);
             
             // Construct the item in place
             new (new_item) T();
@@ -105,9 +88,6 @@ public:
                    active_items.find(first_free_index) != active_items.end()) {
                 first_free_index++;
             }
-            
-            utils::Logger::log("Reused item at index " + std::to_string(first_free_index - 1),
-             utils::Logger::WARN_LEVEL::INFO);
         } 
         else if (first_unallocated_index < pool_size) {
             // Use an unallocated slot
@@ -122,12 +102,9 @@ public:
             // Update indices
             first_free_index = first_unallocated_index + 1;
             first_unallocated_index++;
-            
-            utils::Logger::log("Created new item at index " + std::to_string(first_unallocated_index - 1),
-             utils::Logger::WARN_LEVEL::INFO);
         } 
         else {
-            utils::Logger::log("Pool is full", utils::Logger::WARN_LEVEL::INFO);
+            LOG_WARNING << "Pool is full" << LOG_END;
         }
         
         return new_item;
@@ -141,21 +118,15 @@ public:
         
         // Verify the item is within our pool
         if (index >= pool_size) {
-            utils::Logger::log("Warning: Trying to destroy an item not in the pool",
-             utils::Logger::WARN_LEVEL::ERROR);
+            LOG_ERROR << "Warning: Trying to destroy an item not in the pool" << LOG_END;
             return;
         }
         
         // Check if the item is active
         if (active_items.find(index) == active_items.end()) {
-            utils::Logger::log("Warning: Trying to destroy an inactive item",
-             utils::Logger::WARN_LEVEL::ERROR);
+            LOG_ERROR << "Warning: Trying to destroy an inactive item" << LOG_END;
             return;
         }
-        
-        utils::Logger::log("Destroying item at index " + std::to_string(index) +
-         ", active_items.size() before: " + std::to_string(active_items.size()),
-          utils::Logger::WARN_LEVEL::INFO);
         
         // Call the destructor
         item->~T();
@@ -178,11 +149,6 @@ public:
                 first_unallocated_index--;
             }
         }
-        
-        utils::Logger::log("After destroy: first_free_index: " + std::to_string(first_free_index) +
-         ", first_unallocated_index: " + std::to_string(first_unallocated_index) +
-          ", active_items.size(): " + std::to_string(active_items.size()),
-           utils::Logger::WARN_LEVEL::INFO);
     }
 
     void Clear() {

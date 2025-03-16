@@ -5,8 +5,7 @@
 #include <iostream>
 #include "include/job.h"
 #include "include/job_scheduler.h"
-#include "include/utils/logger.h"
-
+#include "include/utils/LogMacros.h"
 namespace JobSystem {
 namespace tests {
 
@@ -42,7 +41,7 @@ private:
 
 // Test that multiple jobs can be scheduled and executed
 void test_multiple_jobs() {
-    entities::utils::Logger::log("Testing multiple jobs", entities::utils::Logger::WARN_LEVEL::INFO);
+    LOG << "Testing multiple jobs" << LOG_END;
     
     JobScheduler scheduler(2);
     std::atomic<int> sum{0};
@@ -71,6 +70,6 @@ void test_multiple_jobs() {
 
 int main() {
     JobSystem::tests::test_multiple_jobs();
-    std::cout << "Multiple jobs test passed!" << std::endl;
+    LOG << "Multiple jobs test passed!" << LOG_END;
     return 0;
 } 

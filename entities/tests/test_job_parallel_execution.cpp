@@ -5,7 +5,7 @@
 #include <iostream>
 #include "include/job.h"
 #include "include/job_scheduler.h"
-#include "include/utils/logger.h"
+#include "include/utils/LogMacros.h"
 
 namespace JobSystem {
 namespace tests {
@@ -42,8 +42,7 @@ private:
 
 // Test that jobs execute in parallel
 void test_parallel_execution() {
-    entities::utils::Logger::log("Testing parallel job execution", entities::utils::Logger::WARN_LEVEL::INFO);
-    
+    LOG << "Testing parallel job execution" << LOG_END;
     JobScheduler scheduler(4); // Use 4 threads
     std::atomic<int> completedJobs{0};
     
@@ -76,8 +75,7 @@ void test_parallel_execution() {
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
     
-    entities::utils::Logger::log("All jobs completed in " + std::to_string(duration) + "ms", 
-                                entities::utils::Logger::WARN_LEVEL::INFO);
+    LOG << "All jobs completed in " + std::to_string(duration) + "ms" << LOG_END;
     
     // Verify all jobs completed
     assert(completedJobs == 10 && "All jobs should complete");
@@ -91,6 +89,6 @@ void test_parallel_execution() {
 
 int main() {
     JobSystem::tests::test_parallel_execution();
-    std::cout << "Parallel execution test passed!" << std::endl;
+    LOG << "Parallel execution test passed!" << LOG_END;
     return 0;
 } 
