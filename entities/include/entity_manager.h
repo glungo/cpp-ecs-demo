@@ -6,18 +6,26 @@
 #include <map>
 #include "utils/uuid.h"
 #include "pool.h"
-
+#include "utils/singleton.h"
 namespace entities {
 
-class EntityManager {
+class EntityManager : public Singleton<EntityManager> {
 public:
     static constexpr size_t DEFAULT_POOL_SIZE = 10000;
     static constexpr size_t INVALID_INDEX = -1;
 
-    EntityManager(size_t pool_size = DEFAULT_POOL_SIZE) : entity_pool(pool_size) {}
-
+    EntityManager(size_t pool_size = DEFAULT_POOL_SIZE) : entity_pool(pool_size), Singleton<EntityManager>() {}
+    
     Entity* CreateEntity() {
         return entity_pool.Create(uuid::generate_uuid());
+    }
+
+    std::vector<Entity*> GetActiveEntities() const{
+        return entity_pool.GetAll();
+    }
+
+    const Entity* GetPoolPtr() const {
+        return entity_pool.GetPtr();
     }
 
     void DestroyEntity(Entity* entity) {
