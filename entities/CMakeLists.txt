@@ -9,6 +9,7 @@ target_include_directories(entities INTERFACE
 set_property(GLOBAL PROPERTY ENTITIES_TEST_TARGETS "")
 set(address_sanitizer_flag "-fsanitize=address")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${address_sanitizer_flag}")
+set(COMPILE_WARNING_AS_ERROR ON)
 # Only build tests if BUILD_TESTS is ON
 if(BUILD_TESTS)
     enable_testing()
