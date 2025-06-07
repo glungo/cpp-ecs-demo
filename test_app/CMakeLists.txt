@@ -1,18 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
-project(EntityComponentSystem VERSION 0.1.0 LANGUAGES CXX)
+project(TestApp VERSION 0.1.0 LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(BUILD_TESTS ON)
 add_compile_definitions(ENTITIES_DEBUG)
-
-# Enable testing at the top level
-enable_testing()
-
-# Add the entities library
-add_subdirectory(../entities entities)
 
 # Source files for main executable
 set(SOURCES
@@ -22,18 +15,20 @@ set(SOURCES
 # Create the main executable
 add_executable(test_app ${SOURCES})
 
-# Link the entities library to the main executable
-target_link_libraries(test_app PRIVATE entities)
+# Link with the engine library (which already includes entities)
+target_link_libraries(test_app PRIVATE engine)
 
 target_include_directories(test_app PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../
 )
 
-# Run tests for the entities library
+# Run tests for both entities and engine libraries
 if (BUILD_TESTS)
-    # Get list of all test targets from entities
-    get_property(TEST_TARGETS GLOBAL PROPERTY ENTITIES_TEST_TARGETS)
+    # Get list of all test targets
+    get_property(ENTITIES_TEST_TARGETS GLOBAL PROPERTY ENTITIES_TEST_TARGETS)
+    get_property(ENGINE_TEST_TARGETS GLOBAL PROPERTY ENGINE_TEST_TARGETS)
+    set(TEST_TARGETS ${ENTITIES_TEST_TARGETS} ${ENGINE_TEST_TARGETS})
+    
     set(address_sanitizer_flag "-fsanitize=address")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${address_sanitizer_flag}")
     

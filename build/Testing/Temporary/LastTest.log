@@ -1,138 +1,253 @@
-Start testing: Mar 03 20:28 -03
+Start testing: Jun 07 18:33 -03
 ----------------------------------------------------------
-1/9 Testing: test_entity_creation
-1/9 Test: test_entity_creation
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_creation"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_creation" start time: Mar 03 20:28 -03
+1/15 Testing: TestEngineBasic
+1/15 Test: TestEngineBasic
+Command: "/Users/german/cpp-ecs-demo/build/engine/test_engine_basic"
+Directory: /Users/german/cpp-ecs-demo/build/engine
+"TestEngineBasic" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+=== Testing Engine Basic Functionality ===
+[INFO] Initializing engine
+[INFO] Engine initialized successfully
+Engine initialized successfully
+Entity created successfully
+Engine update frame: 0
+Engine update frame: 1
+Engine update frame: 2
+[INFO] Shutting down engine
+[INFO] Engine shutdown completed
+Engine shutdown successful
+All engine tests passed!
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"TestEngineBasic" end time: Jun 07 18:33 -03
+"TestEngineBasic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: test_entity_creation
+2/15 Test: test_entity_creation
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_creation"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_entity_creation" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.13 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_creation" end time: Mar 03 20:28 -03
+"test_entity_creation" end time: Jun 07 18:33 -03
 "test_entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/9 Testing: test_component_creation
-2/9 Test: test_component_creation
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_component_creation"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_component_creation" start time: Mar 03 20:28 -03
+3/15 Testing: test_component_creation
+3/15 Test: test_component_creation
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_component_creation"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_component_creation" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.46 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_component_creation" end time: Mar 03 20:28 -03
+"test_component_creation" end time: Jun 07 18:33 -03
 "test_component_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/9 Testing: test_pool_creation
-3/9 Test: test_pool_creation
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_pool_creation"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_pool_creation" start time: Mar 03 20:28 -03
+4/15 Testing: test_pool_creation
+4/15 Test: test_pool_creation
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_pool_creation"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_pool_creation" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.18 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_pool_creation" end time: Mar 03 20:28 -03
+"test_pool_creation" end time: Jun 07 18:33 -03
 "test_pool_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/9 Testing: test_archetype_creation
-4/9 Test: test_archetype_creation
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_creation"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_creation" start time: Mar 03 20:28 -03
+5/15 Testing: test_archetype_creation
+5/15 Test: test_archetype_creation
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_creation"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_archetype_creation" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.19 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_creation" end time: Mar 03 20:28 -03
+"test_archetype_creation" end time: Jun 07 18:33 -03
 "test_archetype_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/9 Testing: test_archetype_component_access
-5/9 Test: test_archetype_component_access
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_component_access"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_component_access" start time: Mar 03 20:28 -03
+6/15 Testing: test_archetype_component_access
+6/15 Test: test_archetype_component_access
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_component_access"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_archetype_component_access" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.19 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_component_access" end time: Mar 03 20:28 -03
+"test_archetype_component_access" end time: Jun 07 18:33 -03
 "test_archetype_component_access" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-6/9 Testing: test_archetype_entity_iteration
-6/9 Test: test_archetype_entity_iteration
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_archetype_entity_iteration"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_archetype_entity_iteration" start time: Mar 03 20:28 -03
+7/15 Testing: test_archetype_entity_iteration
+7/15 Test: test_archetype_entity_iteration
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_entity_iteration"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_archetype_entity_iteration" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.20 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_entity_iteration" end time: Mar 03 20:28 -03
+"test_archetype_entity_iteration" end time: Jun 07 18:33 -03
 "test_archetype_entity_iteration" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-7/9 Testing: test_basic_entity_creation
-7/9 Test: test_basic_entity_creation
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_basic_entity_creation"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_basic_entity_creation" start time: Mar 03 20:28 -03
+8/15 Testing: test_basic_entity_creation
+8/15 Test: test_basic_entity_creation
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_basic_entity_creation"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_basic_entity_creation" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.19 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_basic_entity_creation" end time: Mar 03 20:28 -03
+"test_basic_entity_creation" end time: Jun 07 18:33 -03
 "test_basic_entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-8/9 Testing: test_entity_pool_overflow
-8/9 Test: test_entity_pool_overflow
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_pool_overflow"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_pool_overflow" start time: Mar 03 20:28 -03
+9/15 Testing: test_entity_pool_overflow
+9/15 Test: test_entity_pool_overflow
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_pool_overflow"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_entity_pool_overflow" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
+Running entity pool test
+Creating 10 entities...
+Successfully created 10 entities
+Cleared all entities
+Entity pool test completed successfully
 <end of output>
-Test time =   0.19 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_pool_overflow" end time: Mar 03 20:28 -03
+"test_entity_pool_overflow" end time: Jun 07 18:33 -03
 "test_entity_pool_overflow" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-9/9 Testing: test_entity_reuse
-9/9 Test: test_entity_reuse
-Command: "/Users/german/cpp-ecs-demo/build/entities/test_entity_reuse"
-Directory: /Users/german/cpp-ecs-demo/build/entities
-"test_entity_reuse" start time: Mar 03 20:28 -03
+10/15 Testing: test_entity_reuse
+10/15 Test: test_entity_reuse
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_reuse"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_entity_reuse" start time: Jun 07 18:33 -03
 Output:
 ----------------------------------------------------------
+Running entity reuse test
+Creating entities for reuse test...
+Created 2 entities successfully
+Destroyed entity 1, now testing reuse...
+Successfully created new entity that reused the slot
+Cleared all entities
+Entity reuse test completed successfully
 <end of output>
-Test time =   0.18 sec
+Test time =   0.05 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_reuse" end time: Mar 03 20:28 -03
+"test_entity_reuse" end time: Jun 07 18:33 -03
 "test_entity_reuse" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Mar 03 20:28 -03
+11/15 Testing: test_job_create
+11/15 Test: test_job_create
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_create"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_job_create" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"test_job_create" end time: Jun 07 18:33 -03
+"test_job_create" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: test_job_parallel_execution
+12/15 Test: test_job_parallel_execution
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_parallel_execution"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_job_parallel_execution" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.38 sec
+----------------------------------------------------------
+Test Passed.
+"test_job_parallel_execution" end time: Jun 07 18:33 -03
+"test_job_parallel_execution" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: test_job_cache_refresh
+13/15 Test: test_job_cache_refresh
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_cache_refresh"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_job_cache_refresh" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"test_job_cache_refresh" end time: Jun 07 18:33 -03
+"test_job_cache_refresh" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/15 Testing: test_job_multiple
+14/15 Test: test_job_multiple
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_multiple"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_job_multiple" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"test_job_multiple" end time: Jun 07 18:33 -03
+"test_job_multiple" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/15 Testing: test_job_scheduler
+15/15 Test: test_job_scheduler
+Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_scheduler"
+Directory: /Users/german/cpp-ecs-demo/build/engine/entities
+"test_job_scheduler" start time: Jun 07 18:33 -03
+Output:
+----------------------------------------------------------
+All tests passed!
+<end of output>
+Test time =   1.08 sec
+----------------------------------------------------------
+Test Passed.
+"test_job_scheduler" end time: Jun 07 18:33 -03
+"test_job_scheduler" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Jun 07 18:33 -03

@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//Build tests
+BUILD_TESTS:BOOL=ON
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
@@ -211,13 +214,31 @@ CMAKE_TAPI:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/tapi
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+Engine_BINARY_DIR:STATIC=/Users/german/cpp-ecs-demo/build/engine
+
+//Value Computed by CMake
+Engine_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Engine_SOURCE_DIR:STATIC=/Users/german/cpp-ecs-demo/engine
+
+//Value Computed by CMake
 EntityComponentSystem_BINARY_DIR:STATIC=/Users/german/cpp-ecs-demo/build
 
 //Value Computed by CMake
 EntityComponentSystem_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-EntityComponentSystem_SOURCE_DIR:STATIC=/Users/german/cpp-ecs-demo/test_app
+EntityComponentSystem_SOURCE_DIR:STATIC=/Users/german/cpp-ecs-demo
+
+//Value Computed by CMake
+TestApp_BINARY_DIR:STATIC=/Users/german/cpp-ecs-demo/build/test_app
+
+//Value Computed by CMake
+TestApp_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+TestApp_SOURCE_DIR:STATIC=/Users/german/cpp-ecs-demo/test_app
 
 
 ########################
@@ -286,7 +307,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/Users/german/cpp-ecs-demo/test_app
+CMAKE_HOME_DIRECTORY:INTERNAL=/Users/german/cpp-ecs-demo
 //ADVANCED property for variable: CMAKE_INSTALL_NAME_TOOL
 CMAKE_INSTALL_NAME_TOOL-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
@@ -306,7 +327,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

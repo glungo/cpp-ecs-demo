@@ -1,6 +1,6 @@
 # Create INTERFACE library since we only have headers
 add_library(entities INTERFACE)
-
+ 
 target_include_directories(entities INTERFACE 
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
@@ -22,7 +22,6 @@ if(BUILD_TESTS)
             ${CMAKE_CURRENT_SOURCE_DIR}
             ${CMAKE_CURRENT_SOURCE_DIR}/..
         )
-        
         # Configure test to show output
         add_test(
             NAME ${test_name} 
@@ -53,4 +52,5 @@ if(BUILD_TESTS)
     add_entities_test(test_job_cache_refresh)
     add_entities_test(test_job_multiple)
     add_entities_test(test_job_scheduler)
+    #add_entities_test(test_system)
 endif()

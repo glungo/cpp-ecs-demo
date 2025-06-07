@@ -10,8 +10,8 @@ set -e
 mkdir -p build
 cd build
 
-# Configure CMake using test_app's CMakeLists.txt
-cmake ../test_app
+# Configure CMake using the root directory instead of test_app
+cmake ..
 
 # Build everything (including running tests)
 cmake --build .

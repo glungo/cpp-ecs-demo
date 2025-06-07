@@ -57,7 +57,7 @@ RM = /opt/homebrew/Cellar/cmake/3.28.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo/test_app
+CMAKE_SOURCE_DIR = /Users/german/cpp-ecs-demo
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/german/cpp-ecs-demo/build
@@ -127,30 +127,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_app
+# Target rules for targets named engine
 
 # Build rule for target.
-test_app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_app
-.PHONY : test_app
+engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 engine
+.PHONY : engine
 
 # fast build rule for target.
-test_app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/build
-.PHONY : test_app/fast
+engine/fast:
+	$(MAKE) $(MAKESILENT) -f engine/CMakeFiles/engine.dir/build.make engine/CMakeFiles/engine.dir/build
+.PHONY : engine/fast
 
 #=============================================================================
-# Target rules for targets named check
+# Target rules for targets named test_engine_basic
 
 # Build rule for target.
-check: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check
-.PHONY : check
+test_engine_basic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_engine_basic
+.PHONY : test_engine_basic
 
 # fast build rule for target.
-check/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
-.PHONY : check/fast
+test_engine_basic/fast:
+	$(MAKE) $(MAKESILENT) -f engine/CMakeFiles/test_engine_basic.dir/build.make engine/CMakeFiles/test_engine_basic.dir/build
+.PHONY : test_engine_basic/fast
 
 #=============================================================================
 # Target rules for targets named test_entity_creation
@@ -162,7 +162,7 @@ test_entity_creation: cmake_check_build_system
 
 # fast build rule for target.
 test_entity_creation/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_creation.dir/build.make entities/CMakeFiles/test_entity_creation.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_entity_creation.dir/build.make engine/entities/CMakeFiles/test_entity_creation.dir/build
 .PHONY : test_entity_creation/fast
 
 #=============================================================================
@@ -175,7 +175,7 @@ test_component_creation: cmake_check_build_system
 
 # fast build rule for target.
 test_component_creation/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_component_creation.dir/build.make entities/CMakeFiles/test_component_creation.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_component_creation.dir/build.make engine/entities/CMakeFiles/test_component_creation.dir/build
 .PHONY : test_component_creation/fast
 
 #=============================================================================
@@ -188,7 +188,7 @@ test_pool_creation: cmake_check_build_system
 
 # fast build rule for target.
 test_pool_creation/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_pool_creation.dir/build.make entities/CMakeFiles/test_pool_creation.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_pool_creation.dir/build.make engine/entities/CMakeFiles/test_pool_creation.dir/build
 .PHONY : test_pool_creation/fast
 
 #=============================================================================
@@ -201,7 +201,7 @@ test_archetype_creation: cmake_check_build_system
 
 # fast build rule for target.
 test_archetype_creation/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_creation.dir/build.make entities/CMakeFiles/test_archetype_creation.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_archetype_creation.dir/build.make engine/entities/CMakeFiles/test_archetype_creation.dir/build
 .PHONY : test_archetype_creation/fast
 
 #=============================================================================
@@ -214,7 +214,7 @@ test_archetype_component_access: cmake_check_build_system
 
 # fast build rule for target.
 test_archetype_component_access/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_component_access.dir/build.make entities/CMakeFiles/test_archetype_component_access.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_archetype_component_access.dir/build.make engine/entities/CMakeFiles/test_archetype_component_access.dir/build
 .PHONY : test_archetype_component_access/fast
 
 #=============================================================================
@@ -227,7 +227,7 @@ test_archetype_entity_iteration: cmake_check_build_system
 
 # fast build rule for target.
 test_archetype_entity_iteration/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make entities/CMakeFiles/test_archetype_entity_iteration.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_archetype_entity_iteration.dir/build.make engine/entities/CMakeFiles/test_archetype_entity_iteration.dir/build
 .PHONY : test_archetype_entity_iteration/fast
 
 #=============================================================================
@@ -240,7 +240,7 @@ test_basic_entity_creation: cmake_check_build_system
 
 # fast build rule for target.
 test_basic_entity_creation/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_basic_entity_creation.dir/build.make entities/CMakeFiles/test_basic_entity_creation.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_basic_entity_creation.dir/build.make engine/entities/CMakeFiles/test_basic_entity_creation.dir/build
 .PHONY : test_basic_entity_creation/fast
 
 #=============================================================================
@@ -253,7 +253,7 @@ test_entity_pool_overflow: cmake_check_build_system
 
 # fast build rule for target.
 test_entity_pool_overflow/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_pool_overflow.dir/build.make entities/CMakeFiles/test_entity_pool_overflow.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_entity_pool_overflow.dir/build.make engine/entities/CMakeFiles/test_entity_pool_overflow.dir/build
 .PHONY : test_entity_pool_overflow/fast
 
 #=============================================================================
@@ -266,32 +266,99 @@ test_entity_reuse: cmake_check_build_system
 
 # fast build rule for target.
 test_entity_reuse/fast:
-	$(MAKE) $(MAKESILENT) -f entities/CMakeFiles/test_entity_reuse.dir/build.make entities/CMakeFiles/test_entity_reuse.dir/build
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_entity_reuse.dir/build.make engine/entities/CMakeFiles/test_entity_reuse.dir/build
 .PHONY : test_entity_reuse/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+#=============================================================================
+# Target rules for targets named test_job_create
 
-# target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+# Build rule for target.
+test_job_create: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_job_create
+.PHONY : test_job_create
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+# fast build rule for target.
+test_job_create/fast:
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_job_create.dir/build.make engine/entities/CMakeFiles/test_job_create.dir/build
+.PHONY : test_job_create/fast
 
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+#=============================================================================
+# Target rules for targets named test_job_parallel_execution
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+# Build rule for target.
+test_job_parallel_execution: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_job_parallel_execution
+.PHONY : test_job_parallel_execution
 
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_app.dir/build.make CMakeFiles/test_app.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+# fast build rule for target.
+test_job_parallel_execution/fast:
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_job_parallel_execution.dir/build.make engine/entities/CMakeFiles/test_job_parallel_execution.dir/build
+.PHONY : test_job_parallel_execution/fast
+
+#=============================================================================
+# Target rules for targets named test_job_cache_refresh
+
+# Build rule for target.
+test_job_cache_refresh: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_job_cache_refresh
+.PHONY : test_job_cache_refresh
+
+# fast build rule for target.
+test_job_cache_refresh/fast:
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_job_cache_refresh.dir/build.make engine/entities/CMakeFiles/test_job_cache_refresh.dir/build
+.PHONY : test_job_cache_refresh/fast
+
+#=============================================================================
+# Target rules for targets named test_job_multiple
+
+# Build rule for target.
+test_job_multiple: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_job_multiple
+.PHONY : test_job_multiple
+
+# fast build rule for target.
+test_job_multiple/fast:
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_job_multiple.dir/build.make engine/entities/CMakeFiles/test_job_multiple.dir/build
+.PHONY : test_job_multiple/fast
+
+#=============================================================================
+# Target rules for targets named test_job_scheduler
+
+# Build rule for target.
+test_job_scheduler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_job_scheduler
+.PHONY : test_job_scheduler
+
+# fast build rule for target.
+test_job_scheduler/fast:
+	$(MAKE) $(MAKESILENT) -f engine/entities/CMakeFiles/test_job_scheduler.dir/build.make engine/entities/CMakeFiles/test_job_scheduler.dir/build
+.PHONY : test_job_scheduler/fast
+
+#=============================================================================
+# Target rules for targets named test_app
+
+# Build rule for target.
+test_app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_app
+.PHONY : test_app
+
+# fast build rule for target.
+test_app/fast:
+	$(MAKE) $(MAKESILENT) -f test_app/CMakeFiles/test_app.dir/build.make test_app/CMakeFiles/test_app.dir/build
+.PHONY : test_app/fast
+
+#=============================================================================
+# Target rules for targets named check
+
+# Build rule for target.
+check: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check
+.PHONY : check
+
+# fast build rule for target.
+check/fast:
+	$(MAKE) $(MAKESILENT) -f test_app/CMakeFiles/check.dir/build.make test_app/CMakeFiles/check.dir/build
+.PHONY : check/fast
 
 # Help Target
 help:
@@ -303,19 +370,23 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... check"
+	@echo "... engine"
 	@echo "... test_app"
 	@echo "... test_archetype_component_access"
 	@echo "... test_archetype_creation"
 	@echo "... test_archetype_entity_iteration"
 	@echo "... test_basic_entity_creation"
 	@echo "... test_component_creation"
+	@echo "... test_engine_basic"
 	@echo "... test_entity_creation"
 	@echo "... test_entity_pool_overflow"
 	@echo "... test_entity_reuse"
+	@echo "... test_job_cache_refresh"
+	@echo "... test_job_create"
+	@echo "... test_job_multiple"
+	@echo "... test_job_parallel_execution"
+	@echo "... test_job_scheduler"
 	@echo "... test_pool_creation"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 .PHONY : help
 
 

@@ -51,6 +51,12 @@
     "string_view": "cpp",
     "typeindex": "cpp",
     "typeinfo": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "condition_variable": "cpp"
+  },
+  "cmake.sourceDirectory": "/Users/german/cpp-ecs-demo/entities",
+  "files.exclude": {
+    "**/.git": true,
+    "**/build": true
   }
 }

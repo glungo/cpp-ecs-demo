@@ -1,4 +1,4 @@
-# Install script for directory: /Users/german/cpp-ecs-demo/test_app
+# Install script for directory: /Users/german/cpp-ecs-demo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/german/cpp-ecs-demo/build/entities/cmake_install.cmake")
+  include("/Users/german/cpp-ecs-demo/build/engine/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/german/cpp-ecs-demo/build/test_app/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
