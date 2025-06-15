@@ -1,5 +1,4 @@
-#ifndef ENGINE_H
-#define ENGINE_H
+#pragma
 
 #include "entities/include/entity_manager.h"
 #include "entities/include/job_scheduler.h"
@@ -32,5 +31,3 @@ private:
 };
 
 } // namespace engine
-
-#endif // ENGINE_H

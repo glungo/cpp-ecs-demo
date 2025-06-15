@@ -1,12 +1,14 @@
 #include "engine/engine.h"
 #include "entities/include/utils/logger.h"
 #include "entities/include/utils/LogMacros.h"
-
+// Includes
+#include "webgpu/webgpu.h"
 namespace engine {
 
 Engine::Engine() 
     : m_initialized(false) 
 {
+
 }
 
 Engine::~Engine() {
@@ -22,7 +24,29 @@ bool Engine::initialize() {
     }
 
     LOG_INFO << "Initializing engine" << LOG_END;
-    
+    	// We create a descriptor
+	WGPUInstanceDescriptor desc = {};
+	desc.nextInChain = nullptr;
+
+	// We create the instance using this descriptor
+#ifdef WEBGPU_BACKEND_EMSCRIPTEN
+	WGPUInstance instance = wgpuCreateInstance(nullptr);
+#else //  WEBGPU_BACKEND_EMSCRIPTEN
+	WGPUInstance instance = wgpuCreateInstance(&desc);
+#endif //  WEBGPU_BACKEND_EMSCRIPTEN
+
+	// We can check whether there is actually an instance created
+	if (!instance) {
+		LOG_ERROR << "Could not initialize WebGPU!" << LOG_END;
+		return false;
+	}
+
+	// Display the object (WGPUInstance is a simple pointer, it may be
+	// copied around without worrying about its size).
+	LOG_INFO << "WGPU instance: " << instance << LOG_END;
+
+	// We clean up the WebGPU instance
+	wgpuInstanceRelease(instance);
     // The JobScheduler doesn't have an initialize method, it's initialized in the constructor
     
     // EntityManager is a singleton and doesn't have an initialize method

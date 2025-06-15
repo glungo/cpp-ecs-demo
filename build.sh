@@ -10,8 +10,8 @@ set -e
 mkdir -p build
 cd build
 
-# Configure CMake using the root directory instead of test_app
-cmake ..
+# Configure CMake using the root directory with WebGPU Dawn backend
+cmake .. -DWEBGPU_BACKEND=DAWN
 
 # Build everything (including running tests)
 cmake --build .

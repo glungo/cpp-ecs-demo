@@ -23,6 +23,9 @@ target_include_directories(test_app PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+# Copy WebGPU runtime libraries for the executable
+target_copy_webgpu_binaries(test_app)
+
 # Run tests for both entities and engine libraries
 if (BUILD_TESTS)
     # Get list of all test targets

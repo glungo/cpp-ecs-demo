@@ -153,6 +153,32 @@ test_engine_basic/fast:
 .PHONY : test_engine_basic/fast
 
 #=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f engine/glfw/src/CMakeFiles/glfw.dir/build.make engine/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f engine/glfw/src/CMakeFiles/update_mappings.dir/build.make engine/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
+
+#=============================================================================
 # Target rules for targets named test_entity_creation
 
 # Build rule for target.
@@ -370,7 +396,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... check"
+	@echo "... update_mappings"
 	@echo "... engine"
+	@echo "... glfw"
 	@echo "... test_app"
 	@echo "... test_archetype_component_access"
 	@echo "... test_archetype_creation"
