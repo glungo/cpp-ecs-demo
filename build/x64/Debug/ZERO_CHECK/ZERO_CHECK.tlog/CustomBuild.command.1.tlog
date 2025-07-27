@@ -1,0 +1,10 @@
+^C:\USERS\GERMAN LUNGO\SOURCE\REPOS\GLUNGO\CPP-ECS-DEMO\BUILD\CMAKEFILES\F14D0B1421E2D80165C67596E20BBE0F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/EntityComponentSystem.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

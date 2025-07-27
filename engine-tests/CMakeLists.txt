@@ -12,62 +12,62 @@ enable_testing()
 # Common include directories for all tests
 set(COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_SOURCE_DIR}/engine/include
-    ${CMAKE_SOURCE_DIR}/entities/include
-    ${CMAKE_SOURCE_DIR}/entities # This is needed for the "include/entity.h" paths
+    ${CMAKE_CURRENT_SOURCE_DIR}/../engine/core/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../engine/entities/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../engine/entities
+    ${CMAKE_CURRENT_SOURCE_DIR}/../engine/entities/include/utils
 )
 
-# Source files for the test suite
-set(TEST_SOURCES
-    src/test_main.cpp
-    src/engine/engine_test_wrapper.cpp
-    src/entities/entity_test_wrappers.cpp
+# Store test executables to add as dependencies
+set(ALL_TEST_EXECUTABLES "")
+
+# Function to create a test executable
+function(add_engine_test TEST_NAME TEST_SOURCE)
+    get_filename_component(TEST_NAME_ONLY ${TEST_SOURCE} NAME_WE)
+    add_executable(${TEST_NAME_ONLY} ${TEST_SOURCE})
+    set_target_properties(${TEST_NAME_ONLY} PROPERTIES 
+        FOLDER "Tests"  # Group tests in a separate folder in the IDE
+    )
+    target_link_libraries(${TEST_NAME_ONLY} PRIVATE engine)
+    target_include_directories(${TEST_NAME_ONLY} PRIVATE ${COMMON_INCLUDE_DIRS})
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME_ONLY})
+    set_tests_properties(${TEST_NAME} PROPERTIES ENVIRONMENT "CTEST_OUTPUT_ON_FAILURE=1")
+    
+    # Add this test to our list of all test executables
+    list(APPEND ALL_TEST_EXECUTABLES ${TEST_NAME_ONLY})
+    set(ALL_TEST_EXECUTABLES ${ALL_TEST_EXECUTABLES} PARENT_SCOPE)
+endfunction()
+
+# Find all test source files in the engine directory
+file(GLOB ENGINE_TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/engine/test_*.cpp")
+foreach(TEST_SOURCE ${ENGINE_TEST_SOURCES})
+    get_filename_component(TEST_NAME_WE ${TEST_SOURCE} NAME_WE)
+    string(REPLACE "test_" "" TEST_NAME ${TEST_NAME_WE})
+    add_engine_test(engine_${TEST_NAME} ${TEST_SOURCE})
+endforeach()
+
+# Find all test source files in the entities directory
+file(GLOB ENTITIES_TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/entities/test_*.cpp")
+foreach(TEST_SOURCE ${ENTITIES_TEST_SOURCES})
+    get_filename_component(TEST_NAME_WE ${TEST_SOURCE} NAME_WE)
+    string(REPLACE "test_" "" TEST_NAME ${TEST_NAME_WE})
+    add_engine_test(entity_${TEST_NAME} ${TEST_SOURCE})
+endforeach()
+
+# Debugging - Print all test executables
+message(STATUS "Test executables: ${ALL_TEST_EXECUTABLES}")
+
+# Create a custom target just to build all tests without running them
+add_custom_target(build_all_tests
+    DEPENDS ${ALL_TEST_EXECUTABLES}
+    COMMENT "Building all test executables"
 )
 
-# Create the combined test executable
-add_executable(engine_tests ${TEST_SOURCES})
-target_link_libraries(engine_tests PRIVATE engine)
-target_include_directories(engine_tests PRIVATE ${COMMON_INCLUDE_DIRS})
-
-# Add tests that can be run through CTest
-add_test(NAME engine_basic COMMAND engine_tests "Engine Basic Tests")
-add_test(NAME entity_creation COMMAND engine_tests "Entity Creation")
-add_test(NAME component_creation COMMAND engine_tests "Component Creation")
-add_test(NAME pool_creation COMMAND engine_tests "Pool Creation")
-add_test(NAME archetype_creation COMMAND engine_tests "Archetype Creation")
-add_test(NAME archetype_component_access COMMAND engine_tests "Archetype Component Access")
-add_test(NAME archetype_entity_iteration COMMAND engine_tests "Archetype Entity Iteration")
-add_test(NAME basic_entity_creation COMMAND engine_tests "Basic Entity Creation")
-add_test(NAME entity_pool_overflow COMMAND engine_tests "Entity Pool Overflow")
-add_test(NAME entity_reuse COMMAND engine_tests "Entity Reuse")
-add_test(NAME job_create COMMAND engine_tests "Job Create")
-add_test(NAME job_parallel_execution COMMAND engine_tests "Job Parallel Execution")
-add_test(NAME job_cache_refresh COMMAND engine_tests "Job Cache Refresh")
-add_test(NAME job_multiple COMMAND engine_tests "Job Multiple")
-add_test(NAME job_scheduler COMMAND engine_tests "Job Scheduler")
-# System test is currently disabled
-# add_test(NAME system COMMAND engine_tests "System Tests")
-
-# Set environment variables for all tests
-set_tests_properties(
-    engine_basic
-    entity_creation
-    component_creation
-    pool_creation
-    archetype_creation
-    archetype_component_access
-    archetype_entity_iteration
-    basic_entity_creation
-    entity_pool_overflow
-    entity_reuse
-    job_create
-    job_parallel_execution
-    job_cache_refresh
-    job_multiple
-    job_scheduler
-    PROPERTIES ENVIRONMENT "CTEST_OUTPUT_ON_FAILURE=1"
+# Create a custom target to build and run all tests
+add_custom_target(build_and_run_tests
+    COMMAND ${CMAKE_CTEST_COMMAND}
+    DEPENDS ${ALL_TEST_EXECUTABLES}
+    COMMENT "Building and running all tests"
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    VERBATIM
 )
-
-# Add an option to run all tests at once
-add_test(NAME all_tests COMMAND engine_tests)
-set_tests_properties(all_tests PROPERTIES ENVIRONMENT "CTEST_OUTPUT_ON_FAILURE=1")

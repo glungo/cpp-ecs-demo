@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src\entities\test_basic_entity_creation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include\engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include\renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\archetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\entity_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\job.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\job_scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogMacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogSink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\container_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\signal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\uuid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ADBEF783-A1DC-3829-BD5D-853EB3BF15AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{47FDC22F-E810-3083-979B-44E7897364C4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

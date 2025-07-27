@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{04EDE963-8ABB-307C-8090-4D49F679AB03}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>build_and_run_tests</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\CMakeFiles\43b57e6137688384c933ef15f7e222ea\build_and_run_tests.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building and running all tests</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd "C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\ctest.exe"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_engine_basic.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_archetype_component_access.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_archetype_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_archetype_entity_iteration.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_basic_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_component_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_entity_pool_overflow.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_entity_reuse.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_job_cache_refresh.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_job_create.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_job_multiple.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_job_parallel_execution.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_job_scheduler.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_pool_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\test_system.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\build_and_run_tests</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building and running all tests</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd "C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\ctest.exe"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_engine_basic.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_archetype_component_access.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_archetype_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_archetype_entity_iteration.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_basic_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_component_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_entity_pool_overflow.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_entity_reuse.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_job_cache_refresh.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_job_create.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_job_multiple.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_job_parallel_execution.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_job_scheduler.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_pool_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\test_system.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\build_and_run_tests</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building and running all tests</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd "C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\ctest.exe"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_engine_basic.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_archetype_component_access.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_archetype_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_archetype_entity_iteration.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_basic_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_component_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_entity_pool_overflow.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_entity_reuse.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_job_cache_refresh.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_job_create.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_job_multiple.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_job_parallel_execution.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_job_scheduler.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_pool_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\test_system.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\build_and_run_tests</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building and running all tests</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd "C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\ctest.exe"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_engine_basic.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_archetype_component_access.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_archetype_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_archetype_entity_iteration.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_basic_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_component_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_entity_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_entity_pool_overflow.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_entity_reuse.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_job_cache_refresh.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_job_create.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_job_multiple.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_job_parallel_execution.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_job_scheduler.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_pool_creation.exe;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\test_system.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\build_and_run_tests</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\build_and_run_tests">
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\ZERO_CHECK.vcxproj">
+      <Project>{FB20F29A-FA84-3FC0-8EB9-0690167D5B88}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_archetype_component_access.vcxproj">
+      <Project>{5F62ABC7-B535-3DDC-89B8-4A9F6162953C}</Project>
+      <Name>test_archetype_component_access</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_archetype_creation.vcxproj">
+      <Project>{E60FDAA4-FAF0-3D1B-8F83-F9F18448A618}</Project>
+      <Name>test_archetype_creation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_archetype_entity_iteration.vcxproj">
+      <Project>{340266C0-1395-35ED-89E5-0C94CE1293DC}</Project>
+      <Name>test_archetype_entity_iteration</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_basic_entity_creation.vcxproj">
+      <Project>{8C86AB13-299A-3D43-8520-98547DB7B1B5}</Project>
+      <Name>test_basic_entity_creation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_component_creation.vcxproj">
+      <Project>{CBEDDA28-8944-3794-A443-98C82E3D1FF3}</Project>
+      <Name>test_component_creation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_engine_basic.vcxproj">
+      <Project>{89AF40E6-A591-3846-A9B0-1F56D7FE2230}</Project>
+      <Name>test_engine_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_entity_creation.vcxproj">
+      <Project>{CE6D0AA3-B6FD-31EF-B31C-CF8564F20FA1}</Project>
+      <Name>test_entity_creation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_entity_pool_overflow.vcxproj">
+      <Project>{59086764-DD79-36FE-BAAF-D3587693439C}</Project>
+      <Name>test_entity_pool_overflow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_entity_reuse.vcxproj">
+      <Project>{9F60D8A2-1C3C-3A4A-A845-AD67C292BB48}</Project>
+      <Name>test_entity_reuse</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_job_cache_refresh.vcxproj">
+      <Project>{BACC1A5B-B23B-3034-BA2F-CEFCC936DC70}</Project>
+      <Name>test_job_cache_refresh</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_job_create.vcxproj">
+      <Project>{6FFFB9AF-5F88-3425-81B0-7C3C83B33CE7}</Project>
+      <Name>test_job_create</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_job_multiple.vcxproj">
+      <Project>{C60EAF4F-F672-3A69-AD7B-D604DAF503CF}</Project>
+      <Name>test_job_multiple</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_job_parallel_execution.vcxproj">
+      <Project>{9E049F0F-E71D-3BF9-B365-C09FB10F8BD4}</Project>
+      <Name>test_job_parallel_execution</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_job_scheduler.vcxproj">
+      <Project>{BED06803-511E-3AD5-AF17-EBA60ED16200}</Project>
+      <Name>test_job_scheduler</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_pool_creation.vcxproj">
+      <Project>{2463B58A-23F1-348E-8533-0768964812EA}</Project>
+      <Name>test_pool_creation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\test_system.vcxproj">
+      <Project>{DE419B95-AFBE-3252-8B40-663B1907D50C}</Project>
+      <Name>test_system</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

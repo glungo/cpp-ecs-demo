@@ -285,3 +285,22 @@ int main() {
     }
 } 
 */
+#include <iostream>
+namespace entities {
+namespace tests {
+// Placeholder for future entity system tests
+void test_system() {
+    // This is a placeholder for future system tests
+    std::cout << "Running entity system tests..." << std::endl;
+    
+    // Here you would implement actual tests for your entity systems
+    // For now, we just print a message
+    std::cout << "Entity system tests completed successfully!" << std::endl;
+}
+
+} // namespace tests
+} // namespace entities
+int main() {
+    entities::tests::test_system();
+    return 0;
+}

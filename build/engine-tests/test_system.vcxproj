@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DE419B95-AFBE-3252-8B40-663B1907D50C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>test_system</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_system.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_system</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_system.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_system</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_system.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_system</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_system.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_system</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\engine\Debug\engine.lib;..\engine\glfw\src\Debug\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/test_system.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/test_system.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\engine\Release\engine.lib;..\engine\glfw\src\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Release/test_system.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Release/test_system.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\engine\MinSizeRel\engine.lib;..\engine\glfw\src\MinSizeRel\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/MinSizeRel/test_system.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/MinSizeRel/test_system.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\..\engine\entities\include\utils;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include;C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\engine\RelWithDebInfo\engine.lib;..\engine\glfw\src\RelWithDebInfo\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/RelWithDebInfo/test_system.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/RelWithDebInfo/test_system.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/engine-tests/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo" "-BC:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build" --check-stamp-file "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine-tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine-tests\src\entities\test_system.cpp" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include\engine.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\core\include\renderer.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\archetype.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\component.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\entity.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\entity_manager.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\job.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\job_scheduler.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\pool.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\system.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogLevel.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogMacros.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogSink.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\LogStream.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\container_utils.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\logger.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\signal.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\singleton.h" />
+    <ClInclude Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\entities\include\utils\uuid.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\ZERO_CHECK.vcxproj">
+      <Project>{FB20F29A-FA84-3FC0-8EB9-0690167D5B88}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine\engine.vcxproj">
+      <Project>{BE3838E8-9719-3A68-BE3C-B2A4039DB270}</Project>
+      <Name>engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine\glfw\src\glfw.vcxproj">
+      <Project>{33F5A240-2F2F-3442-B7C2-EA1A5571BF65}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

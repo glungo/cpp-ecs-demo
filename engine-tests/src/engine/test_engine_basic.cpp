@@ -1,8 +1,9 @@
-#include "engine/engine.h"
+#include "engine.h"
 #include <cassert>
 #include <iostream>
 
-namespace engine_tests {
+namespace engine {
+    namespace tests {
 
 // Simple component for testing
 struct TestComponent {
@@ -10,11 +11,11 @@ struct TestComponent {
     TestComponent(int v = 0) : value(v) {}
 };
 
-int test_engine_basic() {
+void test_engine_basic() {
     std::cout << "=== Testing Engine Basic Functionality ===" << std::endl;
     
     // Create engine instance
-    engine::Engine engine;
+    Engine engine;
     
     // Initialize engine
     bool initResult = engine.initialize();
@@ -41,7 +42,13 @@ int test_engine_basic() {
     std::cout << "Engine shutdown successful" << std::endl;
     
     std::cout << "All engine tests passed!" << std::endl;
-    return 0;
 }
 
-} // namespace engine_tests
+}
+} // namespace engine::tests
+
+int main() {
+    engine::tests::test_engine_basic();
+    std::cout << "Engine basic test completed successfully." << std::endl;
+    return 0;
+}
