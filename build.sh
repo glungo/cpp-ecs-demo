@@ -11,7 +11,7 @@ mkdir -p build
 cd build
 
 # Configure CMake using the root directory with WebGPU Dawn backend
-cmake .. -DWEBGPU_BACKEND=DAWN
+cmake ..
 
 # Build everything (including running tests)
 cmake --build .

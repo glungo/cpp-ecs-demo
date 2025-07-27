@@ -30,6 +30,14 @@
 *.a
 *.lib
 
+#visual studio
+*.ncb
+*.sdf
+*.suo
+*.vcxproj.user
+*.sln
+
+
 # Executables
 *.exe
 *.out
@@ -47,6 +55,7 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+Buiild/
 
 ### CMake Patch ###
 CMakeUserPresets.json

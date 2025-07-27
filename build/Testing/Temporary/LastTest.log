@@ -1,254 +1,370 @@
-Start testing: Jun 15 01:05 -03
+Start testing: Jul 26 23:40 Montevideo Standard Time
 ----------------------------------------------------------
-1/15 Testing: TestEngineBasic
-1/15 Test: TestEngineBasic
-Command: "/Users/german/cpp-ecs-demo/build/engine/test_engine_basic"
-Directory: /Users/german/cpp-ecs-demo/build/engine
-"TestEngineBasic" start time: Jun 15 01:05 -03
+1/16 Testing: engine_basic
+1/16 Test: engine_basic
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Engine Basic Tests"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"engine_basic" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
-=== Testing Engine Basic Functionality ===
-[INFO] Initializing engine
-[INFO] WGPU instance: 0x1338049d0
-[INFO] Engine initialized successfully
-Engine initialized successfully
-Entity created successfully
-Engine update frame: 0
-Engine update frame: 1
-Engine update frame: 2
-[INFO] Shutting down engine
-[INFO] Engine shutdown completed
-Engine shutdown successful
-All engine tests passed!
+Running test: Engine Basic Tests
+Engine basic test running...
+Engine basic test completed successfully.
+PASSED: Engine Basic Tests
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"engine_basic" end time: Jul 26 23:40 Montevideo Standard Time
+"engine_basic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/16 Testing: entity_creation
+2/16 Test: entity_creation
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Entity Creation"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"entity_creation" start time: Jul 26 23:40 Montevideo Standard Time
+Output:
+----------------------------------------------------------
+Running test: Entity Creation
+Running entity creation test...
+Entity creation test passed!
+PASSED: Entity Creation
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"TestEngineBasic" end time: Jun 15 01:05 -03
-"TestEngineBasic" time elapsed: 00:00:00
+"entity_creation" end time: Jul 26 23:40 Montevideo Standard Time
+"entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/15 Testing: test_entity_creation
-2/15 Test: test_entity_creation
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_creation"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_entity_creation" start time: Jun 15 01:05 -03
+3/16 Testing: component_creation
+3/16 Test: component_creation
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Component Creation"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"component_creation" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Component Creation
+Running component creation test...
+Component creation test passed!
+PASSED: Component Creation
 <end of output>
-Test time =   0.05 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_creation" end time: Jun 15 01:05 -03
-"test_entity_creation" time elapsed: 00:00:00
+"component_creation" end time: Jul 26 23:40 Montevideo Standard Time
+"component_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/15 Testing: test_component_creation
-3/15 Test: test_component_creation
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_component_creation"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_component_creation" start time: Jun 15 01:05 -03
+4/16 Testing: pool_creation
+4/16 Test: pool_creation
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Pool Creation"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"pool_creation" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Pool Creation
+Running pool creation test...
+Pool creation test passed!
+PASSED: Pool Creation
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_component_creation" end time: Jun 15 01:05 -03
-"test_component_creation" time elapsed: 00:00:00
+"pool_creation" end time: Jul 26 23:40 Montevideo Standard Time
+"pool_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/15 Testing: test_pool_creation
-4/15 Test: test_pool_creation
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_pool_creation"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_pool_creation" start time: Jun 15 01:05 -03
+5/16 Testing: archetype_creation
+5/16 Test: archetype_creation
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Archetype Creation"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"archetype_creation" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Archetype Creation
+Running archetype creation test...
+Archetype creation test passed!
+PASSED: Archetype Creation
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_pool_creation" end time: Jun 15 01:05 -03
-"test_pool_creation" time elapsed: 00:00:00
+"archetype_creation" end time: Jul 26 23:40 Montevideo Standard Time
+"archetype_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/15 Testing: test_archetype_creation
-5/15 Test: test_archetype_creation
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_creation"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_archetype_creation" start time: Jun 15 01:05 -03
+6/16 Testing: archetype_component_access
+6/16 Test: archetype_component_access
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Archetype Component Access"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"archetype_component_access" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Archetype Component Access
+Running archetype component access test...
+Archetype component access test passed!
+PASSED: Archetype Component Access
 <end of output>
-Test time =   0.05 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_creation" end time: Jun 15 01:05 -03
-"test_archetype_creation" time elapsed: 00:00:00
+"archetype_component_access" end time: Jul 26 23:40 Montevideo Standard Time
+"archetype_component_access" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-6/15 Testing: test_archetype_component_access
-6/15 Test: test_archetype_component_access
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_component_access"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_archetype_component_access" start time: Jun 15 01:05 -03
+7/16 Testing: archetype_entity_iteration
+7/16 Test: archetype_entity_iteration
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Archetype Entity Iteration"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"archetype_entity_iteration" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Archetype Entity Iteration
+Running archetype entity iteration test...
+Archetype entity iteration test passed!
+PASSED: Archetype Entity Iteration
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_component_access" end time: Jun 15 01:05 -03
-"test_archetype_component_access" time elapsed: 00:00:00
+"archetype_entity_iteration" end time: Jul 26 23:40 Montevideo Standard Time
+"archetype_entity_iteration" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-7/15 Testing: test_archetype_entity_iteration
-7/15 Test: test_archetype_entity_iteration
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_archetype_entity_iteration"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_archetype_entity_iteration" start time: Jun 15 01:05 -03
+8/16 Testing: basic_entity_creation
+8/16 Test: basic_entity_creation
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Basic Entity Creation"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"basic_entity_creation" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Basic Entity Creation
+Running basic entity creation test...
+Basic entity creation test passed!
+PASSED: Basic Entity Creation
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_archetype_entity_iteration" end time: Jun 15 01:05 -03
-"test_archetype_entity_iteration" time elapsed: 00:00:00
+"basic_entity_creation" end time: Jul 26 23:40 Montevideo Standard Time
+"basic_entity_creation" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-8/15 Testing: test_basic_entity_creation
-8/15 Test: test_basic_entity_creation
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_basic_entity_creation"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_basic_entity_creation" start time: Jun 15 01:05 -03
+9/16 Testing: entity_pool_overflow
+9/16 Test: entity_pool_overflow
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Entity Pool Overflow"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"entity_pool_overflow" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Entity Pool Overflow
+Running entity pool overflow test...
+Entity pool overflow test passed!
+PASSED: Entity Pool Overflow
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_basic_entity_creation" end time: Jun 15 01:05 -03
-"test_basic_entity_creation" time elapsed: 00:00:00
+"entity_pool_overflow" end time: Jul 26 23:40 Montevideo Standard Time
+"entity_pool_overflow" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-9/15 Testing: test_entity_pool_overflow
-9/15 Test: test_entity_pool_overflow
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_pool_overflow"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_entity_pool_overflow" start time: Jun 15 01:05 -03
+10/16 Testing: entity_reuse
+10/16 Test: entity_reuse
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Entity Reuse"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"entity_reuse" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
-Running entity pool test
-Creating 10 entities...
-Successfully created 10 entities
-Cleared all entities
-Entity pool test completed successfully
+Running test: Entity Reuse
+Running entity reuse test...
+Entity reuse test passed!
+PASSED: Entity Reuse
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_pool_overflow" end time: Jun 15 01:05 -03
-"test_entity_pool_overflow" time elapsed: 00:00:00
+"entity_reuse" end time: Jul 26 23:40 Montevideo Standard Time
+"entity_reuse" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-10/15 Testing: test_entity_reuse
-10/15 Test: test_entity_reuse
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_entity_reuse"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_entity_reuse" start time: Jun 15 01:05 -03
+11/16 Testing: job_create
+11/16 Test: job_create
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Job Create"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"job_create" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
-Running entity reuse test
-Creating entities for reuse test...
-Created 2 entities successfully
-Destroyed entity 1, now testing reuse...
-Successfully created new entity that reused the slot
-Cleared all entities
-Entity reuse test completed successfully
+Running test: Job Create
+Running job create test...
+Job create test passed!
+PASSED: Job Create
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_entity_reuse" end time: Jun 15 01:05 -03
-"test_entity_reuse" time elapsed: 00:00:00
+"job_create" end time: Jul 26 23:40 Montevideo Standard Time
+"job_create" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-11/15 Testing: test_job_create
-11/15 Test: test_job_create
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_create"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_job_create" start time: Jun 15 01:05 -03
+12/16 Testing: job_parallel_execution
+12/16 Test: job_parallel_execution
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Job Parallel Execution"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"job_parallel_execution" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Job Parallel Execution
+Running job parallel execution test...
+Job parallel execution test passed!
+PASSED: Job Parallel Execution
 <end of output>
-Test time =   0.05 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test_job_create" end time: Jun 15 01:05 -03
-"test_job_create" time elapsed: 00:00:00
+"job_parallel_execution" end time: Jul 26 23:40 Montevideo Standard Time
+"job_parallel_execution" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-12/15 Testing: test_job_parallel_execution
-12/15 Test: test_job_parallel_execution
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_parallel_execution"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_job_parallel_execution" start time: Jun 15 01:05 -03
+13/16 Testing: job_cache_refresh
+13/16 Test: job_cache_refresh
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Job Cache Refresh"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"job_cache_refresh" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Job Cache Refresh
+Running job cache refresh test...
+Job cache refresh test passed!
+PASSED: Job Cache Refresh
 <end of output>
-Test time =   0.37 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_job_parallel_execution" end time: Jun 15 01:05 -03
-"test_job_parallel_execution" time elapsed: 00:00:00
+"job_cache_refresh" end time: Jul 26 23:40 Montevideo Standard Time
+"job_cache_refresh" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-13/15 Testing: test_job_cache_refresh
-13/15 Test: test_job_cache_refresh
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_cache_refresh"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_job_cache_refresh" start time: Jun 15 01:05 -03
+14/16 Testing: job_multiple
+14/16 Test: job_multiple
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Job Multiple"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"job_multiple" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Job Multiple
+Running job multiple test...
+Job multiple test passed!
+PASSED: Job Multiple
 <end of output>
-Test time =   0.17 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_job_cache_refresh" end time: Jun 15 01:05 -03
-"test_job_cache_refresh" time elapsed: 00:00:00
+"job_multiple" end time: Jul 26 23:40 Montevideo Standard Time
+"job_multiple" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-14/15 Testing: test_job_multiple
-14/15 Test: test_job_multiple
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_multiple"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_job_multiple" start time: Jun 15 01:05 -03
+15/16 Testing: job_scheduler
+15/16 Test: job_scheduler
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe" "Job Scheduler"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"job_scheduler" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
+Running test: Job Scheduler
+Running job scheduler test...
+Job scheduler test passed!
+PASSED: Job Scheduler
 <end of output>
-Test time =   0.16 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_job_multiple" end time: Jun 15 01:05 -03
-"test_job_multiple" time elapsed: 00:00:00
+"job_scheduler" end time: Jul 26 23:40 Montevideo Standard Time
+"job_scheduler" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-15/15 Testing: test_job_scheduler
-15/15 Test: test_job_scheduler
-Command: "/Users/german/cpp-ecs-demo/build/engine/entities/test_job_scheduler"
-Directory: /Users/german/cpp-ecs-demo/build/engine/entities
-"test_job_scheduler" start time: Jun 15 01:05 -03
+16/16 Testing: all_tests
+16/16 Test: all_tests
+Command: "C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/Debug/engine_tests.exe"
+Directory: C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests
+"all_tests" start time: Jul 26 23:40 Montevideo Standard Time
 Output:
 ----------------------------------------------------------
-All tests passed!
+Running test: Engine Basic Tests
+Engine basic test running...
+Engine basic test completed successfully.
+PASSED: Engine Basic Tests
+Running test: Entity Creation
+Running entity creation test...
+Entity creation test passed!
+PASSED: Entity Creation
+Running test: Component Creation
+Running component creation test...
+Component creation test passed!
+PASSED: Component Creation
+Running test: Pool Creation
+Running pool creation test...
+Pool creation test passed!
+PASSED: Pool Creation
+Running test: Archetype Creation
+Running archetype creation test...
+Archetype creation test passed!
+PASSED: Archetype Creation
+Running test: Archetype Component Access
+Running archetype component access test...
+Archetype component access test passed!
+PASSED: Archetype Component Access
+Running test: Archetype Entity Iteration
+Running archetype entity iteration test...
+Archetype entity iteration test passed!
+PASSED: Archetype Entity Iteration
+Running test: Basic Entity Creation
+Running basic entity creation test...
+Basic entity creation test passed!
+PASSED: Basic Entity Creation
+Running test: Entity Pool Overflow
+Running entity pool overflow test...
+Entity pool overflow test passed!
+PASSED: Entity Pool Overflow
+Running test: Entity Reuse
+Running entity reuse test...
+Entity reuse test passed!
+PASSED: Entity Reuse
+Running test: Job Create
+Running job create test...
+Job create test passed!
+PASSED: Job Create
+Running test: Job Parallel Execution
+Running job parallel execution test...
+Job parallel execution test passed!
+PASSED: Job Parallel Execution
+Running test: Job Cache Refresh
+Running job cache refresh test...
+Job cache refresh test passed!
+PASSED: Job Cache Refresh
+Running test: Job Multiple
+Running job multiple test...
+Job multiple test passed!
+PASSED: Job Multiple
+Running test: Job Scheduler
+Running job scheduler test...
+Job scheduler test passed!
+PASSED: Job Scheduler
+DISABLED: System Tests
+
+=== Test Summary ===
+Total: 16
+Passed: 15
+Failed: 0
+Disabled: 1
 <end of output>
-Test time =   1.07 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test_job_scheduler" end time: Jun 15 01:05 -03
-"test_job_scheduler" time elapsed: 00:00:01
+"all_tests" end time: Jul 26 23:40 Montevideo Standard Time
+"all_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 15 01:05 -03
+End testing: Jul 26 23:40 Montevideo Standard Time

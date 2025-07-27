@@ -1,7 +1,8 @@
-#pragma
+#pragma once
 
-#include "entities/include/entity_manager.h"
-#include "entities/include/job_scheduler.h"
+#include "entity_manager.h"
+#include "job_scheduler.h"
+#include <memory>
 
 namespace engine {
 
@@ -19,14 +20,15 @@ public:
     // Run a single frame of the engine
     void update(float deltaTime);
     
+    //TODO: handle the entity manager memory on engine instead of using a singleton
     // Get entity manager
     entities::EntityManager& getEntityManager() { return entities::EntityManager::getInstance(); }
     
     // Get job scheduler
-    JobSystem::JobScheduler& getJobScheduler() { return m_jobScheduler; }
-    
+    JobSystem::JobScheduler& getJobScheduler() { return *m_jobScheduler; }
+
 private:
-    JobSystem::JobScheduler m_jobScheduler;
+    std::unique_ptr<JobSystem::JobScheduler> m_jobScheduler;
     bool m_initialized;
 };
 

@@ -20,3 +20,8 @@ add_subdirectory(engine)
 
 # Then add the test_app which will use the engine
 add_subdirectory(test_app)
+
+# Add the engine-tests project if tests are enabled
+if(BUILD_TESTS)
+    add_subdirectory(engine-tests)
+endif()

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\CMakeFiles\b3083e4c2bc4bff5bd9d501727544a22\update_mappings.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\glfw\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\glfw\src\mappings.h.in">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\engine\glfw\CMake\GenerateMappings.cmake" />
+    <None Include="C:\Users\German Lungo\source\repos\glungo\cpp-ecs-demo\build\engine\glfw\src\CMakeFiles\update_mappings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BAC82330-81AA-37DF-9477-B178AF8ECAFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ADBEF783-A1DC-3829-BD5D-853EB3BF15AF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

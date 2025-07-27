@@ -1,44 +1,18 @@
-/Users/german/cpp-ecs-demo/build/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/CMakeFiles/engine.dir
-/Users/german/cpp-ecs-demo/build/engine/CMakeFiles/test_engine_basic.dir
-/Users/german/cpp-ecs-demo/build/engine/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/engine/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/glfw.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/update_mappings.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/webgpu/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/engine/webgpu/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/webgpu/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/_deps/webgpu-backend-wgpu-build/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/_deps/webgpu-backend-wgpu-build/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/_deps/webgpu-backend-wgpu-build/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_entity_creation.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_component_creation.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_pool_creation.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_archetype_creation.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_archetype_component_access.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_archetype_entity_iteration.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_basic_entity_creation.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_entity_pool_overflow.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_entity_reuse.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_job_create.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_job_parallel_execution.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_job_cache_refresh.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_job_multiple.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test_job_scheduler.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/engine/entities/CMakeFiles/rebuild_cache.dir
-/Users/german/cpp-ecs-demo/build/test_app/CMakeFiles/test_app.dir
-/Users/german/cpp-ecs-demo/build/test_app/CMakeFiles/check.dir
-/Users/german/cpp-ecs-demo/build/test_app/CMakeFiles/test.dir
-/Users/german/cpp-ecs-demo/build/test_app/CMakeFiles/edit_cache.dir
-/Users/german/cpp-ecs-demo/build/test_app/CMakeFiles/rebuild_cache.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/CMakeFiles/engine.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/CMakeFiles/ALL_BUILD.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/glfw/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/glfw/CMakeFiles/ALL_BUILD.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/glfw.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/update_mappings.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/glfw/src/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine/entities/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/test_app/CMakeFiles/test_app.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/test_app/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/test_app/CMakeFiles/ALL_BUILD.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/engine_tests.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/RUN_TESTS.dir
+C:/Users/German Lungo/source/repos/glungo/cpp-ecs-demo/build/engine-tests/CMakeFiles/ALL_BUILD.dir
