@@ -10,6 +10,9 @@ set(COMPILE_WARNING_AS_ERROR ON)
 # Create the engine library target
 add_library(engine)
 
+# Find Vulkan package
+find_package(Vulkan REQUIRED)
+
 # Add the 'glfw' directory, which contains the definition of a 'glfw' target
 add_subdirectory(third_party/glfw)
 
@@ -46,11 +49,14 @@ target_include_directories(engine
         ${CMAKE_CURRENT_SOURCE_DIR}/core/include
         ${CMAKE_CURRENT_SOURCE_DIR}/entities/include
         ${CMAKE_CURRENT_SOURCE_DIR}/entities/include/utils
+    PRIVATE
+         ${Vulkan_INCLUDE_DIRS}
 )
 
 # Link with entities library
 target_link_libraries(engine 
     PRIVATE glfw
+    PRIVATE Vulkan::Vulkan
 )
 
 # Create source groups for nice organization in Visual Studio
