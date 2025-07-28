@@ -1,6 +1,11 @@
 #include <iostream>
+#include "engine.h"
 
 int main() {
-    std::cout << "Empty test application" << std::endl;
+    engine::Engine engine;
+    if (!engine.initialize()) {
+        std::cerr << "Failed to initialize the engine" << std::endl;
+        return 1;
+    }
     return 0;
 }
