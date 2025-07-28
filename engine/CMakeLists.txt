@@ -11,7 +11,7 @@ set(COMPILE_WARNING_AS_ERROR ON)
 add_library(engine)
 
 # Add the 'glfw' directory, which contains the definition of a 'glfw' target
-add_subdirectory(glfw)
+add_subdirectory(third_party/glfw)
 
 file(GLOB_RECURSE ENGINE_ENTITIES_HEADERS
     "${CMAKE_CURRENT_SOURCE_DIR}/entities/include/*.h"

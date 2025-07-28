@@ -3,7 +3,7 @@ rem Windows batch file for building cpp-ecs-demo
 
 rem Clear console
 cls
-
+git submodule update --init --recursive
 rem Delete build directory if it exists
 if exist build rmdir /s /q build
 rem Create build directory
