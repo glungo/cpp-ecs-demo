@@ -3,8 +3,10 @@
 #include "entity_manager.h"
 #include "job_scheduler.h"
 #include <memory>
-
 namespace engine {
+
+// Forward declaration for window class
+class glfw_window;
 
 class Engine {
 public:
@@ -30,6 +32,7 @@ public:
 private:
     std::unique_ptr<JobSystem::JobScheduler> m_jobScheduler;
     bool m_initialized;
+    std::shared_ptr<glfw_window> m_window;
 };
 
 } // namespace engine

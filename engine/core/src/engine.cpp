@@ -2,8 +2,7 @@
 #include "logger.h"
 #include "LogMacros.h"
 
-#define GLFW_INCLUDE_VULKAN
-#include <GLFW/glfw3.h>
+#include "window.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -15,7 +14,6 @@ namespace engine {
 Engine::Engine() 
     : m_initialized(false) 
 {
-
 }
 
 Engine::~Engine() {
@@ -25,6 +23,12 @@ Engine::~Engine() {
 }
 
 bool Engine::initialize() {
+    m_window = std::make_shared<glfw_window>();
+    if (!m_window) {
+        LOG_ERROR << "Failed to create window" << LOG_END;
+        return false;
+    }
+
     if (m_initialized) {
         LOG_WARNING << "Engine is already initialized" << LOG_END;
         return true;
@@ -34,13 +38,6 @@ bool Engine::initialize() {
         LOG_ERROR << "Failed to create JobScheduler" << LOG_END;
         return false;
     }
-
-	// Initialize GLFW
-    glfwInit();
-    
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    GLFWwindow * window = glfwCreateWindow(800, 600, "Vulkan window",
-        nullptr, nullptr);
     
     uint32_t extensionCount = 0;
     vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount,
@@ -50,11 +47,10 @@ bool Engine::initialize() {
     glm::vec4 vec;
     auto test = matrix * vec;
 
-    while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
+    while (!m_window->shouldClose()) {
+        m_window->pollEvents();
     }
-    glfwDestroyWindow(window);
-    glfwTerminate();
+	m_window->shutdown();
 
     LOG_INFO << "Engine initialized successfully" << LOG_END;
     return true;
