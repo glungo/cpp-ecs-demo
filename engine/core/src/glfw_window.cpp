@@ -51,18 +51,6 @@ namespace engine {
         return true;
     }
 
-    bool glfw_window::createGraphicSurface(std::weak_ptr<platform::GraphicsInstance<VkInstance>> instanceWrapper, std::weak_ptr<platform::GraphicsSurface<VkSurfaceKHR>> surfaceWrapper) const {
-        auto instance = instanceWrapper.lock();
-        auto surface = surfaceWrapper.lock();
-        if (!instance || !surface) {
-            return false;
-        }
-        if (glfwCreateWindowSurface(*(instance->instance), m_windowHandle->handle, nullptr, surface->surface) == VK_SUCCESS) {
-            return true;
-        }
-        return false;
-    }
-
     void glfw_window::shutdown() {
         if (m_windowHandle && m_windowHandle->handle) {
             glfwDestroyWindow(m_windowHandle->handle);

@@ -23,16 +23,23 @@ Engine::~Engine() {
 }
 
 bool Engine::initialize() {
+    if (m_initialized) {
+        LOG_WARNING << "Engine is already initialized" << LOG_END;
+        return true;
+    }
+
     m_window = std::make_shared<glfw_window>();
     if (!m_window) {
         LOG_ERROR << "Failed to create window" << LOG_END;
         return false;
     }
 
-    if (m_initialized) {
-        LOG_WARNING << "Engine is already initialized" << LOG_END;
-        return true;
+	m_renderingContext = std::make_shared<graphics::VulkanRenderingContext>(*m_window);
+    if (!m_renderingContext->initialize()) {
+        LOG_ERROR << "Failed to initialize Vulkan rendering context" << LOG_END;
+        return false;
     }
+
     m_jobScheduler = std::make_unique<JobSystem::JobScheduler>();
     if (!m_jobScheduler) {
         LOG_ERROR << "Failed to create JobScheduler" << LOG_END;

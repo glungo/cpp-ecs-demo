@@ -33,36 +33,46 @@ file(GLOB_RECURSE ENGINE_CORE_HEADERS
     "${CMAKE_CURRENT_SOURCE_DIR}/core/include/*.h"
 )
 
+file(GLOB_RECURSE ENGINE_GRAPHICS_HEADERS
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/include/*.h"
+)
+
+file(GLOB_RECURSE ENGINE_GRAPHICS_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/src/*.cpp"
+)
+
 # Add source files to the engine target
 target_sources(engine
     PRIVATE 
         ${ENGINE_CORE_SOURCES}
         ${ENGINE_ENTITIES_SOURCES}
+        ${ENGINE_GRAPHICS_SOURCES}
     PUBLIC
         ${ENGINE_CORE_HEADERS}
         ${ENGINE_ENTITIES_HEADERS}
-)
+        ${ENGINE_GRAPHICS_HEADERS})
 
 # Add include directories for engine core
 target_include_directories(engine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/core/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/graphics/include
         ${CMAKE_CURRENT_SOURCE_DIR}/entities/include
         ${CMAKE_CURRENT_SOURCE_DIR}/entities/include/utils
-    PRIVATE
-         ${Vulkan_INCLUDE_DIRS}
+        ${Vulkan_INCLUDE_DIRS}
 )
 
 # Link with entities library
 target_link_libraries(engine 
-    PRIVATE glfw
-    PRIVATE Vulkan::Vulkan
+    PUBLIC glfw
+    PUBLIC Vulkan::Vulkan
 )
 
 # Create source groups for nice organization in Visual Studio
 source_group("Core\\Source Files" FILES ${ENGINE_CORE_SOURCES})
 source_group("Core\\Header Files" FILES ${ENGINE_CORE_HEADERS})
-#add entities as source group
+source_group("Graphics\\Source Files" FILES ${ENGINE_GRAPHICS_SOURCES})
+source_group("Graphics\\Header Files" FILES ${ENGINE_GRAPHICS_HEADERS}) 
 source_group("Entities\\Header Files" FILES ${ENGINE_ENTITIES_HEADERS})
 source_group("Entities\\Source Files" FILES ${ENGINE_ENTITIES_SOURCES})
 

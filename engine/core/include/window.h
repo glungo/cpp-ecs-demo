@@ -32,8 +32,8 @@ namespace engine {
         virtual void swapBuffers() = 0;
         
         // Properties
-        virtual void getFramebufferSize(int& width, int& height) const = 0;
-        virtual void getWindowSize(int& width, int& height) const = 0;
+        virtual void getFramebufferSize(int* width, int* height) const = 0;
+        virtual void getWindowSize(int* width, int* height) const = 0;
         virtual float getAspectRatio() const = 0;
         
         void setResizeCallback(std::function<void(int, int)> callback) {
@@ -75,16 +75,15 @@ namespace engine {
 		}
         bool shouldClose() const override { return glfwWindowShouldClose(m_windowHandle->handle); }
         void swapBuffers() override { glfwSwapBuffers(m_windowHandle->handle); }
-       
-        void getFramebufferSize(int& width, int& height) const override {
-            glfwGetFramebufferSize(m_windowHandle->handle, &width, &height);
+        void getFramebufferSize(int* width, int* height) const override {
+            glfwGetFramebufferSize(m_windowHandle->handle, width, height);
         }
-        void getWindowSize(int& width, int& height) const override {
-            glfwGetWindowSize(m_windowHandle->handle, &width, &height);
+        void getWindowSize(int* width, int* height) const override {
+            glfwGetWindowSize(m_windowHandle->handle, width, height);
         }
         float getAspectRatio() const override {
             int width, height;
-            getFramebufferSize(width, height);
+            getFramebufferSize(&width, &height);
             return static_cast<float>(width) / static_cast<float>(height);
         }
 
@@ -130,10 +129,11 @@ namespace engine {
                 });
         }
 
+		// Window handle access
+        std::shared_ptr<platform::WindowHandle<GLFWwindow>> getWindowHandle() const {
+            return m_windowHandle;
+		}
       
-
-        // Graphics API integration
-        bool createGraphicSurface(std::weak_ptr<platform::GraphicsInstance<VkInstance>> instanceWrapper, std::weak_ptr<platform::GraphicsSurface<VkSurfaceKHR>> surfaceWrapper) const;
     protected:
         bool initialize(const WindowConfig& config) override;
 
