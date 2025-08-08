@@ -5,6 +5,7 @@
 #include "window.h"
 #include "vulkan_device.h"
 #include "vulkan_swapchain.h"
+#include "vulkan_tools.h"
 #include <vector>
 #include <string>
 #include <memory>
@@ -65,7 +66,11 @@ namespace engine::graphics {
         std::unique_ptr<vulkan_utils::VulkanDevice> m_device;
 		VkQueue m_graphicsQueue = VK_NULL_HANDLE;
 		VkFormat m_depthFormat = VK_FORMAT_UNDEFINED;
-        // Swapchain
+        vulkan_utils::DepthStencil m_depthStencil;
+        VkRenderPass m_renderPass = VK_NULL_HANDLE;
+        VkPipelineCache m_pipelineCache = VK_NULL_HANDLE;
+        // List of available frame buffers (same as number of swap chain images)
+        std::vector<VkFramebuffer> m_framebuffers;
         std::unique_ptr<vulkan_utils::VulkanSwapChain> m_swapchain;
         
         // Frame management
@@ -106,7 +111,11 @@ namespace engine::graphics {
         bool createCommandPool();
         bool createCommandBuffers();
         bool createSyncObjects();
-                
+        bool setupDepthStencil();
+        bool setupRenderPass();
+        bool createPipelineCache();
+        bool setupFrameBuffer();
+
         // Debug callback
        /* static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
             VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,

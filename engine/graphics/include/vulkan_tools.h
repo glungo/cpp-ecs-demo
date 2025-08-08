@@ -44,6 +44,17 @@
 	}																									\
 }
 #endif
+// Macro to check and display vulkan return results but returns false if not VK_SUCCESS, doesnt return true
+#define VK_CHECK(x)																						\
+{																										\
+	VkResult res = (x);																					\
+	if (res != VK_SUCCESS)																				\
+	{																									\
+		std::cout << "Fatal : VkResult is \"" << res << "\" in " << __FILE__ << " at line " << __LINE__ << "\n"; \
+		assert(res == VK_SUCCESS);																		\
+		return false;                                                                                   \
+	}																									\
+}
 
 const std::string getAssetPath();
 const std::string getShaderBasePath();
@@ -72,6 +83,12 @@ namespace engine::graphics::vulkan_utils
 	VkBool32 formatIsFilterable(VkPhysicalDevice physicalDevice, VkFormat format, VkImageTiling tiling);
 	// Returns true if a given format has a stencil part
 	VkBool32 formatHasStencil(VkFormat format);
+
+	struct DepthStencil {
+		VkImage image;
+		VkDeviceMemory memory;
+		VkImageView view;
+	};
 
 	// Put an image memory barrier for setting an image layout on the sub resource into the given command buffer
 	void setImageLayout(
