@@ -1,6 +1,7 @@
 #include "vulkan_rendering_context.h"
 #include <vulkan/vulkan.h>
 #include "vulkan_device.h"
+#include "vulkan_tools.h"
 #include "window.h"
 #include <set>
 #include <vector>
@@ -15,6 +16,7 @@ VulkanRenderingContext::VulkanRenderingContext(const glfw_window& window) :
 	m_depthStencil(),
 	m_framebuffers(),
 	m_shaderModules(),
+	m_gui(),
 	m_swapchain(std::make_unique<vulkan_utils::VulkanSwapChain>()),
 	m_currentFrame(0),
 	m_currentImageIndex(0),
@@ -474,16 +476,22 @@ bool VulkanRenderingContext::setupFrameBuffer()
 
 bool VulkanRenderingContext::setupUIOverlay()
 {
-	return true; // Currently not implemented
-	//TODO: Setup IMGUI
-	/*ui.device = vulkanDevice;
-	ui.queue = queue;
-	ui.shaders = {
-		loadShader(getShadersPath() + "base/uioverlay.vert.spv", VK_SHADER_STAGE_VERTEX_BIT),
-		loadShader(getShadersPath() + "base/uioverlay.frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT),
+	// Provide the UI overlay with the VulkanDevice pointer for resource creation
+	m_gui.device = m_device.get();
+	m_gui.queue = m_graphicsQueue;
+
+	// Use existing helper for shader base path (may include resourcePath override)
+	std::string shaderBase = getShaderBasePath();
+	if (!shaderBase.empty() && shaderBase.back() != '/' && shaderBase.back() != '\\') {
+		shaderBase += '/';
+	}
+	m_gui.shaders = {
+		loadShader(shaderBase + "uioverlay.vert.spv", VK_SHADER_STAGE_VERTEX_BIT),
+		loadShader(shaderBase + "uioverlay.frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT),
 	};
-	ui.prepareResources();
-	ui.preparePipeline(pipelineCache, renderPass, swapChain.colorFormat, depthFormat);*/
+	m_gui.prepareResources();
+	m_gui.preparePipeline(m_pipelineCache, m_renderPass, m_swapchain->colorFormat, m_depthFormat);
+	return true;
 }
 
 VkPipelineShaderStageCreateInfo VulkanRenderingContext::loadShader(std::string fileName, VkShaderStageFlagBits stage)

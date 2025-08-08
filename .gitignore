@@ -65,4 +65,5 @@ CMakeUserPresets.json
 # External projects
 *-prefix/
 
-# End of https://www.toptal.com/developers/gitignore/api/c++,cmake
+.vs/
+.vscode/

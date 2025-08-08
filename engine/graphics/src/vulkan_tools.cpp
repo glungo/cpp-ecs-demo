@@ -19,7 +19,7 @@ const std::string getAssetPath()
 		return vulkan_utils::resourcePath + "/assets/";
 	}
 
-	return "./../assets/";
+	return "./../../../assets/";
 }
 
 const std::string getShaderBasePath()
@@ -27,7 +27,8 @@ const std::string getShaderBasePath()
 	if (vulkan_utils::resourcePath != "") {
 		return vulkan_utils::resourcePath + "/shaders/";
 	}
-	return "./../shaders/";
+	// Executable expected at build/test_app/<Config>/ ; shaders live in engine/graphics/shaders in source tree
+	return "./../../../engine/graphics/shaders/";
 }
 #endif
 
