@@ -67,3 +67,11 @@ CMakeUserPresets.json
 
 .vs/
 .vscode/
+*.spv
+/.vs/cpp-ecs-demo/v17/.wsuo
+/.vs/cpp-ecs-demo/v17/DocumentLayout.backup.json
+/.vs/cpp-ecs-demo/v17/DocumentLayout.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/.vscode/settings.json
+*.md
