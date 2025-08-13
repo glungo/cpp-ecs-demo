@@ -1,7 +1,6 @@
 #include "engine.h"
 #include "logger.h"
 #include "LogMacros.h"
-
 #include "window.h"
 
 #define GLM_FORCE_RADIANS
@@ -34,32 +33,26 @@ bool Engine::initialize() {
         return false;
     }
 
-	m_renderingContext = std::make_shared<graphics::VulkanRenderingContext>(*m_window);
-    if (!m_renderingContext->initialize()) {
-        LOG_ERROR << "Failed to initialize Vulkan rendering context" << LOG_END;
+    m_renderer = std::make_unique<Renderer>();
+    if (!m_renderer->initialize(*m_window)) {
+        LOG_ERROR << "Failed to initialize renderer" << LOG_END;
         return false;
     }
-
+	
     m_jobScheduler = std::make_unique<JobSystem::JobScheduler>();
     if (!m_jobScheduler) {
         LOG_ERROR << "Failed to create JobScheduler" << LOG_END;
         return false;
     }
-    
-    uint32_t extensionCount = 0;
-    vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount,
-        nullptr);
-    LOG_INFO << extensionCount << " extensions supported\n";  
-    glm::mat4 matrix;
-    glm::vec4 vec;
-    auto test = matrix * vec;
 
     while (!m_window->shouldClose()) {
+		m_renderer->render();
         m_window->pollEvents();
     }
 	m_window->shutdown();
 
     LOG_INFO << "Engine initialized successfully" << LOG_END;
+    m_initialized = true;
     return true;
 }
 
@@ -85,6 +78,7 @@ void Engine::update(float deltaTime) {
     
     // Process jobs
     m_jobScheduler->Update(deltaTime);
+    m_renderer->render();
 }
 
 } // namespace engine

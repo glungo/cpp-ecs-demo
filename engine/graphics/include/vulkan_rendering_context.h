@@ -10,6 +10,9 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <array>
+#include "vulkan_benchmark.h"
+#include "vulkan_utils.h"
 
 namespace engine::graphics {
     // -----------------------
@@ -25,7 +28,9 @@ namespace engine::graphics {
         void shutdown() override;
         bool beginFrame() override;
         void endFrame() override;
-        void present() override;
+        void render(const Camera& camera) override;
+        void renderOverlay(const Camera& camera);
+        void renderGame(const Camera& camera);
         void recreateSurface(uint32_t width, uint32_t height) override;
         void getDrawableSize(uint32_t& width, uint32_t& height) const override;
         uint32_t getCurrentFrameIndex() const override { return m_currentFrame; }
@@ -55,7 +60,8 @@ namespace engine::graphics {
         //void setObjectName(uint64_t object, VkObjectType objectType, const char* name);
         
     private:
-        static const int MAX_FRAMES_IN_FLIGHT = 2;
+        static const int MAX_FRAMES_IN_FLIGHT = 3;
+        static constexpr uint32_t MAX_CONCURRENT_FRAMES = MAX_FRAMES_IN_FLIGHT;
         
         // Initialization state
         bool m_initialized = false;
@@ -71,9 +77,19 @@ namespace engine::graphics {
         VkRenderPass m_renderPass = VK_NULL_HANDLE;
         VkPipelineCache m_pipelineCache = VK_NULL_HANDLE;
         GUI::UIOverlay m_gui;
+        vulkan_utils::Benchmark m_benchmark;
         // List of available frame buffers (same as number of swap chain images)
         std::vector<VkFramebuffer> m_framebuffers;
         std::vector<VkShaderModule> m_shaderModules;
+        vulkan_utils::vulkan_vertex_buffer m_vertexBuffer;
+        vulkan_utils::vulkan_index_buffer m_indexBuffer;
+        std::array<vulkan_utils::vulkan_uniform_buffer, MAX_CONCURRENT_FRAMES> m_uniformBuffers;
+        // The descriptor set layout describes the shader binding layout (without actually referencing descriptor)
+	    // Like the pipeline layout it's pretty much a blueprint and can be used with different descriptor sets as long as their layout matches
+	    VkDescriptorSetLayout m_descriptorSetLayout = VK_NULL_HANDLE;
+        VkDescriptorPool m_descriptorPool = VK_NULL_HANDLE;
+        VkPipelineLayout m_pipelineLayout = VK_NULL_HANDLE;
+        VkPipeline m_pipeline = VK_NULL_HANDLE;
         std::unique_ptr<vulkan_utils::VulkanSwapChain> m_swapchain;
         
         // Frame management
@@ -119,6 +135,12 @@ namespace engine::graphics {
         bool createPipelineCache();
         bool setupFrameBuffer();
         bool setupUIOverlay();
+		bool createVertexBuffer();
+		bool createUniformBuffers();
+		bool createDescriptorSetLayout();
+		bool createDescriptorPool();
+		bool createDescriptorSets();
+		bool createPipelines();
         VkPipelineShaderStageCreateInfo loadShader(std::string fileName, VkShaderStageFlagBits stage);
 
         // Debug callback

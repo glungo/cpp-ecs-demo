@@ -2,6 +2,7 @@
 
 #include "entity_manager.h"
 #include "job_scheduler.h"
+#include "renderer.h"
 #include <memory>
 
 #include "vulkan_rendering_context.h"
@@ -35,7 +36,7 @@ private:
     std::unique_ptr<JobSystem::JobScheduler> m_jobScheduler;
     bool m_initialized;
     std::shared_ptr<glfw_window> m_window;
-	std::shared_ptr<graphics::VulkanRenderingContext> m_renderingContext;
+	std::unique_ptr<Renderer> m_renderer;
 };
 
 } // namespace engine

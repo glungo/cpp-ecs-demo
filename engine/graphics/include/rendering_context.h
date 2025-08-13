@@ -4,6 +4,7 @@
 
 namespace engine {
     class Window;
+    class Camera;
 }
 
 namespace engine::graphics {
@@ -20,7 +21,7 @@ namespace engine::graphics {
         // Frame operations
         virtual bool beginFrame() = 0;
         virtual void endFrame() = 0;
-        virtual void present() = 0;
+        virtual void render(const Camera& camera) = 0;
         
         // Surface management
         virtual void recreateSurface(uint32_t width, uint32_t height) = 0;

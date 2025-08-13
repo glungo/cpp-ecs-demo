@@ -136,4 +136,11 @@ namespace engine::graphics::vulkan_utils
 
 	uint32_t alignedSize(uint32_t value, uint32_t alignment);
 	VkDeviceSize alignedVkSize(VkDeviceSize value, VkDeviceSize alignment);
+
+	// This function is used to request a device memory type that supports all the property flags we request (e.g. device local, host visible)
+	// Upon success it will return the index of the memory type that fits our requested memory properties
+	// This is necessary as implementations can offer an arbitrary number of memory types with different
+	// memory properties.
+	// You can check https://vulkan.gpuinfo.org/ for details on different memory configurations
+	uint32_t getMemoryTypeIndex(uint32_t typeBits, VkMemoryPropertyFlags properties, const VkPhysicalDeviceMemoryProperties& deviceMemoryProperties);
 }
