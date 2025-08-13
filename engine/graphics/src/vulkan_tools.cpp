@@ -9,6 +9,13 @@
 #include "vulkan_tools.h"
 #include "vulkan_initializers.h"
 
+// Include filesystem and iostream for path operations and debugging
+#include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+
 using namespace engine::graphics;
 
 #if !(defined(VK_USE_PLATFORM_IOS_MVK) || defined(VK_USE_PLATFORM_MACOS_MVK) || defined(VK_USE_PLATFORM_METAL_EXT))
@@ -16,19 +23,107 @@ using namespace engine::graphics;
 const std::string getAssetPath()
 {
 	if (vulkan_utils::resourcePath != "") {
-		return vulkan_utils::resourcePath + "/assets/";
+		std::filesystem::path fullPath = std::filesystem::absolute(vulkan_utils::resourcePath + "/assets/");
+		return fullPath.string() + "/";
 	}
 
-	return "./../../../assets/";
+	// List of potential relative paths to try
+	std::vector<std::string> candidatePaths = {
+		"./../../../assets/",
+		"./assets/",
+		"../assets/",
+		"../../assets/", 
+		"../../../../assets/",
+		"./engine/assets/",
+		"../engine/assets/"
+	};
+	
+	// Try each candidate path and return the first one that exists
+	for (const auto& relativePath : candidatePaths) {
+		try {
+			std::filesystem::path testPath = std::filesystem::absolute(relativePath);
+			if (std::filesystem::exists(testPath)) {
+				std::string fullPath = testPath.string();
+				// Ensure path ends with separator
+				if (!fullPath.empty() && fullPath.back() != '/' && fullPath.back() != '\\') {
+					fullPath += '/';
+				}
+				std::cout << "Resolved asset base path: " << fullPath << std::endl;
+				return fullPath;
+			}
+		} catch (const std::filesystem::filesystem_error& ex) {
+			// Continue to next candidate if this one fails
+			continue;
+		}
+	}
+	
+	// Fallback: try to resolve the default relative path to absolute
+	try {
+		std::filesystem::path fallbackPath = std::filesystem::absolute("./../../../assets/");
+		std::string fullPath = fallbackPath.string();
+		if (!fullPath.empty() && fullPath.back() != '/' && fullPath.back() != '\\') {
+			fullPath += '/';
+		}
+		std::cout << "Using fallback asset path (may not exist): " << fullPath << std::endl;
+		return fullPath;
+	} catch (const std::filesystem::filesystem_error& ex) {
+		// If all else fails, return the original relative path
+		std::cerr << "Warning: Could not resolve absolute asset path, using relative path" << std::endl;
+		return "./../../../assets/";
+	}
 }
 
 const std::string getShaderBasePath()
 {
 	if (vulkan_utils::resourcePath != "") {
-		return vulkan_utils::resourcePath + "/shaders/";
+		std::filesystem::path fullPath = std::filesystem::absolute(vulkan_utils::resourcePath + "/shaders/");
+		return fullPath.string() + "/";
 	}
-	// Executable expected at build/test_app/<Config>/ ; shaders live in engine/graphics/shaders in source tree
-	return "./../../../engine/graphics/shaders/";
+	
+	// List of potential relative paths to try
+	std::vector<std::string> candidatePaths = {
+		"./../../../engine/graphics/shaders/",
+		"./engine/graphics/shaders/",
+		"../engine/graphics/shaders/",
+		"../../engine/graphics/shaders/", 
+		"../../../../engine/graphics/shaders/",
+		"./shaders/",
+		"../shaders/"
+	};
+	
+	// Try each candidate path and return the first one that exists
+	for (const auto& relativePath : candidatePaths) {
+		try {
+			std::filesystem::path testPath = std::filesystem::absolute(relativePath);
+			if (std::filesystem::exists(testPath)) {
+				std::string fullPath = testPath.string();
+				// Ensure path ends with separator
+				if (!fullPath.empty() && fullPath.back() != '/' && fullPath.back() != '\\') {
+					fullPath += '/';
+				}
+				std::cout << "Resolved shader base path: " << fullPath << std::endl;
+				return fullPath;
+			}
+		} catch (const std::filesystem::filesystem_error& ex) {
+			// Continue to next candidate if this one fails
+			continue;
+		}
+	}
+	
+	// Fallback: try to resolve the default relative path to absolute
+	try {
+		std::filesystem::path fallbackPath = std::filesystem::absolute("./../../../engine/graphics/shaders/");
+		std::string fullPath = fallbackPath.string();
+		if (!fullPath.empty() && fullPath.back() != '/' && fullPath.back() != '\\') {
+			fullPath += '/';
+		}
+		std::cout << "Using fallback shader path (may not exist): " << fullPath << std::endl;
+		return fullPath;
+	} catch (const std::filesystem::filesystem_error& ex) {
+		// If all else fails, return the original relative path
+		std::cerr << "Warning: Could not resolve absolute shader path, using relative path" << std::endl;
+		return "./../../../engine/graphics/shaders/";
+	}
 }
 #endif
 
@@ -83,7 +178,8 @@ namespace engine::graphics::vulkan_utils
 			STR(VIRTUAL_GPU);
 			STR(CPU);
 #undef STR
-		default: return "UNKNOWN_DEVICE_TYPE";
+		default:
+			return "UNKNOWN_DEVICE_TYPE";
 		}
 	}
 
@@ -350,6 +446,15 @@ namespace engine::graphics::vulkan_utils
 
 	VkShaderModule loadShader(const char* fileName, VkDevice device)
 	{
+		// Debug: Print the full path being used
+		std::cout << "Attempting to load shader: " << fileName << std::endl;
+		
+		// Check if file exists before trying to open it
+		if (!fileExists(fileName)) {
+			std::cerr << "Error: Shader file does not exist: \"" << fileName << "\"" << std::endl;
+			return VK_NULL_HANDLE;
+		}
+
 		std::ifstream is(fileName, std::ios::binary | std::ios::in | std::ios::ate);
 
 		if (is.is_open())
@@ -400,6 +505,29 @@ namespace engine::graphics::vulkan_utils
 	VkDeviceSize alignedVkSize(VkDeviceSize value, VkDeviceSize alignment)
 	{
 		return (value + alignment - 1) & ~(alignment - 1);
+	}
+
+	// This function is used to request a device memory type that supports all the property flags we request (e.g. device local, host visible)
+	// Upon success it will return the index of the memory type that fits our requested memory properties
+	// This is necessary as implementations can offer an arbitrary number of memory types with different
+	// memory properties.
+	// You can check https://vulkan.gpuinfo.org/ for details on different memory configurations
+	uint32_t getMemoryTypeIndex(uint32_t typeBits, VkMemoryPropertyFlags properties, const VkPhysicalDeviceMemoryProperties& deviceMemoryProperties)
+	{
+		// Iterate over all memory types available for the device used in this example
+		for (uint32_t i = 0; i < deviceMemoryProperties.memoryTypeCount; i++)
+		{
+			if ((typeBits & 1) == 1)
+			{
+				if ((deviceMemoryProperties.memoryTypes[i].propertyFlags & properties) == properties)
+				{
+					return i;
+				}
+			}
+			typeBits >>= 1;
+		}
+
+		throw "Could not find a suitable memory type!";
 	}
 
 	namespace tools
