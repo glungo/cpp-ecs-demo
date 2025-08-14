@@ -312,10 +312,8 @@ void VulkanSwapChain::cleanup()
 			vkDestroyImageView(device, imageViews[i], nullptr);
 		}
 		vkDestroySwapchainKHR(device, swapChain, nullptr);
+		swapChain = VK_NULL_HANDLE;
 	}
-	if (surface != VK_NULL_HANDLE) {
-		vkDestroySurfaceKHR(instance, surface, nullptr);
-	}
-	surface = VK_NULL_HANDLE;
-	swapChain = VK_NULL_HANDLE;
+	// Surface should not be destroyed here during swapchain recreation
+	// It should only be destroyed during final cleanup
 }

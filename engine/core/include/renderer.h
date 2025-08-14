@@ -50,6 +50,22 @@ namespace engine {
                     m_renderingContext->endFrame();
                 }
             }
+            
+            void handleResize(int width, int height) {
+                if (m_renderingContext && width > 0 && height > 0) {
+                    std::cout << "Renderer handling resize: " << width << "x" << height << std::endl;
+                    
+                    // Signal the rendering context that framebuffer was resized
+                    m_renderingContext->setFramebufferResized(true);
+                    
+                    // Update camera aspect ratio
+                    if (m_camera) {
+                        float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
+                        m_camera->updateAspectRatio(aspectRatio);
+                        std::cout << "Updated camera aspect ratio to: " << aspectRatio << std::endl;
+                    }
+                }
+            }
 
     private:
         std::unique_ptr<graphics::VulkanRenderingContext> m_renderingContext;
@@ -65,20 +81,20 @@ namespace engine {
             
             // Set up perspective projection
             float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
-            m_camera->setPerspective(45.0f, aspectRatio, 0.1f, 10.0f);
+            m_camera->setPerspective(60.0f, aspectRatio, 1.0f, 256.0f);
             
             // Position camera to see the triangle
             // Triangle vertices are at -1 to 1, so place camera at z=3 to see it
-            m_camera->setPosition(glm::vec3(0.0f, 0.0f, 3.0f));
+            m_camera->setPosition(glm::vec3(0.0f, 0.0f, -3.0f));
             m_camera->setRotation(glm::vec3(0.0f, 0.0f, 0.0f));
             
             // Ensure flipY is set correctly for Vulkan
             m_camera->flipY = true;
             
             std::cout << "Camera initialized:" << std::endl;
-            std::cout << "  Position: (0, 0, 3)" << std::endl;
+            std::cout << "  Position: (0, 0, -3)" << std::endl;
             std::cout << "  Rotation: (0, 0, 0)" << std::endl;
-            std::cout << "  FOV: 45 degrees" << std::endl;
+            std::cout << "  FOV: 60 degrees" << std::endl;
             std::cout << "  Aspect: " << aspectRatio << std::endl;
             std::cout << "  Near/Far: 0.1/10.0" << std::endl;
             std::cout << "  FlipY: true (Vulkan)" << std::endl;

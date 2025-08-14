@@ -56,6 +56,9 @@ namespace engine::graphics {
         bool isSwapchainValid() const { return m_swapchain != VK_NULL_HANDLE; }
         uint32_t getCurrentImageIndex() const { return m_currentImageIndex; }
         
+        // Resize handling
+        void setFramebufferResized(bool resized) { m_framebufferResized = resized; }
+        
         // Debug utilities
         //void setObjectName(uint64_t object, VkObjectType objectType, const char* name);
         
@@ -142,13 +145,10 @@ namespace engine::graphics {
 		bool createDescriptorSets();
 		bool createPipelines();
         VkPipelineShaderStageCreateInfo loadShader(std::string fileName, VkShaderStageFlagBits stage);
-
-        // Debug callback
-       /* static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
-            VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
-            VkDebugUtilsMessageTypeFlagsEXT messageType,
-            const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,
-            void* pUserData);*/
+        
+        // Swapchain recreation helpers
+        void cleanupSwapchainResources();
+        bool recreateSwapchainResources(uint32_t width, uint32_t height);
     };
     
 } // namespace engine::graphics

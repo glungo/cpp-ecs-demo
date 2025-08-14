@@ -33,7 +33,7 @@ namespace engine {
         m_windowHandle = std::make_shared<platform::WindowHandle<GLFWwindow>>();
         
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // ENABLE RESIZING
 
         m_windowHandle->handle = glfwCreateWindow(m_config.width, m_config.height, m_config.title.c_str(), nullptr, nullptr);
         if (!m_windowHandle->handle) {

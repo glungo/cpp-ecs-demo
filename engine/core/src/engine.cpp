@@ -39,6 +39,13 @@ bool Engine::initialize() {
         return false;
     }
 	
+    // Connect window resize callback to rendering context
+    m_window->setResizeCallback([this](int width, int height) {
+        if (m_renderer) {
+            m_renderer->handleResize(width, height);
+        }
+    });
+
     m_jobScheduler = std::make_unique<JobSystem::JobScheduler>();
     if (!m_jobScheduler) {
         LOG_ERROR << "Failed to create JobScheduler" << LOG_END;

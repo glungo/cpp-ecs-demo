@@ -201,21 +201,29 @@ bool VulkanRenderingContext::beginFrame() {
 	
 	// Wait for the current frame to finish
 	VkResult waitResult = vkWaitForFences(m_device->logicalDevice, 1, &m_inFlightFences[m_currentFrame], VK_TRUE, UINT64_MAX);
-	if (waitResult != VK_SUCCESS) {
-		std::cerr << "Failed to wait for fence! VkResult: " << waitResult << std::endl;
-		return false;
-	}
-	
+		if (waitResult != VK_SUCCESS) {
+			std::cerr << "Failed to wait for fence! VkResult: " << waitResult << std::endl;
+			return false;
+		}
+		
 	// Reset the fence for the next frame
-	VkResult resetResult = vkResetFences(m_device->logicalDevice, 1, &m_inFlightFences[m_currentFrame]);
-	if (resetResult != VK_SUCCESS) {
-		std::cerr << "Failed to reset fence! VkResult: " << resetResult << std::endl;
-		return false;
-	}
+		VkResult resetResult = vkResetFences(m_device->logicalDevice, 1, &m_inFlightFences[m_currentFrame]);
+		if (resetResult != VK_SUCCESS) {
+			std::cerr << "Failed to reset fence! VkResult: " << resetResult << std::endl;
+			return false;
+		}
 	
 	// Acquire the next image from the swapchain
 	VkResult result = m_swapchain->acquireNextImage(m_imageAvailableSemaphores[m_currentFrame], m_currentImageIndex);
-	if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
+	if (result == VK_ERROR_OUT_OF_DATE_KHR) {
+		// Swapchain is out of date, need to recreate immediately
+		int width, height;
+		m_window.getFramebufferSize(&width, &height);
+		if (width > 0 && height > 0) {
+			recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
+		}
+		return false; // Skip this frame
+	} else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
 		std::cerr << "Failed to acquire next image! VkResult: " << result << std::endl;
 		return false; // Failed to acquire next image
 	}
@@ -271,10 +279,10 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 	
 	// Update the uniform buffer for the CURRENT FRAME (not image index!)
 	ShaderData shaderData{};
-	// DEBUGGING: Use identity matrices to render triangle in screen space
-	shaderData.projectionMatrix = glm::mat4(1.0f); // Identity matrix
-	shaderData.viewMatrix = glm::mat4(1.0f);       // Identity matrix  
-	shaderData.modelMatrix = glm::mat4(1.0f);      // Identity matrix
+	
+	shaderData.projectionMatrix = camera.matrices.perspective;
+	shaderData.viewMatrix = camera.matrices.view;
+	shaderData.modelMatrix = glm::mat4(1.0f);
 
 	// Debug: Print matrix values occasionally
 	if (shouldPrint) {
@@ -294,7 +302,6 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 		std::cout << "  Using uniform buffer[" << m_currentFrame << "] for frame sync" << std::endl;
 	}
 
-	// Build the command buffer - USE CORRECT INDEX
 	vkResetCommandBuffer(m_commandBuffers[commandBufferIndex], 0);
 
 	VkCommandBufferBeginInfo cmdBufInfo{};
@@ -355,7 +362,7 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 	// Ending the render pass will add an implicit barrier transitioning the frame buffer color attachment to
 	// VK_IMAGE_LAYOUT_PRESENT_SRC_KHR for presenting it to the windowing system
 	VK_CHECK_RESULT(vkEndCommandBuffer(commandBuffer));
-
+	
 	// Submit the command buffer to the graphics queue
 	// Pipeline stage at which the queue submission will wait (via pWaitSemaphores)
 	VkPipelineStageFlags waitStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
@@ -389,7 +396,12 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 	// Handle swapchain recreation if needed
 	if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || m_framebufferResized) {
 		m_framebufferResized = false;
-		std::cout << "Swapchain needs recreation (result: " << result << ")" << std::endl;
+		int width, height;
+		m_window.getFramebufferSize(&width, &height);
+		if (width > 0 && height > 0) {
+			std::cout << "Recreating swapchain after present (result: " << result << ", resized: " << m_framebufferResized << ")" << std::endl;
+			recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
+		}
 	} else if (result != VK_SUCCESS) {
 		std::cerr << "Failed to present swap chain image! VkResult: " << result << std::endl;
 	}
@@ -404,7 +416,86 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 
 void VulkanRenderingContext::recreateSurface(uint32_t width, uint32_t height)
 {
+	std::cout << "Recreating swapchain for new size: " << width << "x" << height << std::endl;
+	
+	// Wait for device to be idle before recreating resources
+	vkDeviceWaitIdle(m_device->logicalDevice);
 
+	// Cleanup old swapchain-dependent resources
+	cleanupSwapchainResources();
+	
+	// Recreate swapchain with new dimensions (surface should remain valid)
+	if (!recreateSwapchainResources(width, height)) {
+		std::cerr << "Failed to recreate swapchain resources!" << std::endl;
+		return;
+	}
+	
+	std::cout << "Swapchain recreation completed successfully" << std::endl;
+}
+
+void VulkanRenderingContext::cleanupSwapchainResources() 
+{
+	// First, wait for all in-flight operations to complete
+	vkDeviceWaitIdle(m_device->logicalDevice);
+	
+	// Cleanup framebuffers
+	for (auto framebuffer : m_framebuffers) {
+		vkDestroyFramebuffer(m_device->logicalDevice, framebuffer, nullptr);
+	}
+	m_framebuffers.clear();
+	
+	// Cleanup depth stencil
+	if (m_depthStencil.view != VK_NULL_HANDLE) {
+		vkDestroyImageView(m_device->logicalDevice, m_depthStencil.view, nullptr);
+		m_depthStencil.view = VK_NULL_HANDLE;
+	}
+	if (m_depthStencil.image != VK_NULL_HANDLE) {
+		vkDestroyImage(m_device->logicalDevice, m_depthStencil.image, nullptr);
+		m_depthStencil.image = VK_NULL_HANDLE;
+	}
+	if (m_depthStencil.memory != VK_NULL_HANDLE) {
+		vkFreeMemory(m_device->logicalDevice, m_depthStencil.memory, nullptr);
+		m_depthStencil.memory = VK_NULL_HANDLE;
+	}
+	
+	// DO NOT cleanup synchronization objects - they are independent of swapchain
+	// and should persist across swapchain recreations
+	
+	// Cleanup swapchain (this will recreate the images and imageviews)
+	if (m_swapchain) {
+		m_swapchain->cleanup();
+	}
+}
+
+bool VulkanRenderingContext::recreateSwapchainResources(uint32_t width, uint32_t height)
+{
+	// Note: VulkanSwapChain::create expects references that can be modified
+	uint32_t swapchainWidth = width;
+	uint32_t swapchainHeight = height;
+	
+	// Recreate swapchain
+	m_swapchain->create(swapchainWidth, swapchainHeight, false, false);
+	
+	// Recreate depth stencil with new dimensions
+	if (!setupDepthStencil()) {
+		return false;
+	}
+	
+	// Recreate framebuffers with new dimensions
+	if (!setupFrameBuffer()) {
+		return false;
+	}
+	
+	// DO NOT recreate synchronization objects - they are independent of swapchain
+	// and should persist across swapchain recreations
+	
+	// Reset the current frame counter to start fresh
+	m_currentFrame = 0;
+	
+	// Reset the resize flag
+	m_framebufferResized = false;
+	
+	return true;
 }
 
 void VulkanRenderingContext::getDrawableSize(uint32_t& width, uint32_t& height) const
@@ -548,8 +639,8 @@ bool VulkanRenderingContext::createSwapchain() {
     uint32_t swapchainWidth = static_cast<uint32_t>(width);  
     uint32_t swapchainHeight = static_cast<uint32_t>(height);  
 
-    // Fix for E0140: Adjust the arguments to match the function signature  
-    m_swapchain->create(swapchainWidth, swapchainHeight, m_device->logicalDevice);
+    // VulkanSwapChain::create expects references that can be modified
+    m_swapchain->create(swapchainWidth, swapchainHeight, false, false);
 
     return true; // Ensure the function returns a value  
 }
@@ -578,6 +669,7 @@ bool VulkanRenderingContext::createCommandBuffers() {
 }
 
 bool VulkanRenderingContext::createSyncObjects() {
+	// Ensure vectors are properly sized
 	m_imageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
 	m_renderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
 	m_inFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
@@ -590,6 +682,7 @@ bool VulkanRenderingContext::createSyncObjects() {
 	fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT; // Start in signaled state
 	
 	for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; ++i) {
+		// Create new semaphores and fences (old ones should have been cleaned up)
 		if (vkCreateSemaphore(m_device->logicalDevice, &semaphoreInfo, nullptr, &m_imageAvailableSemaphores[i]) != VK_SUCCESS ||
 			vkCreateSemaphore(m_device->logicalDevice, &semaphoreInfo, nullptr, &m_renderFinishedSemaphores[i]) != VK_SUCCESS ||
 			vkCreateFence(m_device->logicalDevice, &fenceInfo, nullptr, &m_inFlightFences[i]) != VK_SUCCESS) {
@@ -1158,7 +1251,6 @@ bool VulkanRenderingContext::createPipelines()
 	VkPipelineMultisampleStateCreateInfo multisampleStateCI{};
 	multisampleStateCI.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
 	multisampleStateCI.rasterizationSamples = VK_SAMPLE_COUNT_1_BIT;
-	multisampleStateCI.pSampleMask = nullptr;
 
 	// Vertex input descriptions
 	// Specifies the vertex input parameters for a pipeline
@@ -1209,9 +1301,7 @@ bool VulkanRenderingContext::createPipelines()
 	pipelineCI.pVertexInputState = &vertexInputStateCI;
 	pipelineCI.pInputAssemblyState = &inputAssemblyStateCI;
 	pipelineCI.pRasterizationState = &rasterizationStateCI;
-	pipelineCI.pColorBlendState = &colorBlendStateCI;
 	pipelineCI.pMultisampleState = &multisampleStateCI;
-	pipelineCI.pViewportState = &viewportStateCI;
 	pipelineCI.pDepthStencilState = &depthStencilStateCI;
 	pipelineCI.pDynamicState = &dynamicStateCI;
 
