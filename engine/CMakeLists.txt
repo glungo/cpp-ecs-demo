@@ -62,6 +62,7 @@ target_include_directories(engine
         ${Vulkan_INCLUDE_DIRS}
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/imgui
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/imgui/backends
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/stb
 )
 
 # Link with entities library
