@@ -13,6 +13,7 @@
 #define VK_ENABLE_BETA_EXTENSIONS
 #endif
 #include "vulkan_device.h"
+#include "config_flags.h"
 #include <unordered_set>
 
 namespace engine::graphics::vulkan_utils
@@ -55,6 +56,11 @@ namespace engine::graphics::vulkan_utils
 				}
 			}
 		}
+
+#if ENABLE_GPU_SPRITES
+		// Detect sprite rendering capabilities early during device initialization
+		detectSpriteRenderingCapabilities(physicalDevice);
+#endif
 	}
 
 	/**

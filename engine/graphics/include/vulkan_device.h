@@ -66,4 +66,11 @@ namespace engine::graphics::vulkan_utils
 		bool            extensionSupported(std::string extension);
 		VkFormat        getSupportedDepthFormat(bool checkSamplingSupport);
 	};
+
+	// Sprite rendering capability detection functions
+	// TODO: lives in global state, i dont like it probably is best moved into a class
+	void detectSpriteRenderingCapabilities(VkPhysicalDevice physicalDevice);
+	std::vector<const char*> getSpriteRenderingRequiredExtensions();
+	void getSpriteRenderingRequiredFeatures(VkPhysicalDeviceFeatures& features, void** pNext);
+
 }        // namespace vks
