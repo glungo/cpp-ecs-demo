@@ -192,11 +192,11 @@ bool VulkanRenderingContext::beginFrame() {
 		return false; // Not initialized
 	}
 	
-	static int beginFrameCount = 0;
-	bool shouldPrint =false;
-
-	if (shouldPrint) {
-		std::cout << ">>> beginFrame() " << beginFrameCount << " - m_currentFrame: " << m_currentFrame << std::endl;
+	// Check if window is minimized (width or height = 0)
+	int windowWidth, windowHeight;
+	m_window.getWindowSize(&windowWidth, &windowHeight);
+	if (windowWidth == 0 || windowHeight == 0) {
+		return false; // Skip rendering when minimized
 	}
 	
 	// Wait for the current frame to finish
@@ -216,91 +216,42 @@ bool VulkanRenderingContext::beginFrame() {
 	// Acquire the next image from the swapchain
 	VkResult result = m_swapchain->acquireNextImage(m_imageAvailableSemaphores[m_currentFrame], m_currentImageIndex);
 	if (result == VK_ERROR_OUT_OF_DATE_KHR) {
-		// Swapchain is out of date, need to recreate immediately
-		int width, height;
-		m_window.getFramebufferSize(&width, &height);
-		if (width > 0 && height > 0) {
-			recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
-		}
+		//window resizing is handled by the renderer.
 		return false; // Skip this frame
 	} else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
 		std::cerr << "Failed to acquire next image! VkResult: " << result << std::endl;
 		return false; // Failed to acquire next image
 	}
 	
-	if (shouldPrint) {
-		std::cout << ">>> Acquired swapchain image: " << m_currentImageIndex << std::endl;
-	}
-	
-	beginFrameCount++;
 	return true; // Frame started successfully
 }
 
 void VulkanRenderingContext::endFrame() {
-	static int endFrameCount = 0;
-	bool shouldPrint = (endFrameCount % 60 == 0);
-	
-	if (shouldPrint) {
-		std::cout << "<<< endFrame() " << endFrameCount << " - Advancing from frame " << m_currentFrame;
-	}
-	
 	// Advance to next frame
 	m_currentFrame = (m_currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
-	
-	if (shouldPrint) {
-		std::cout << " to frame " << m_currentFrame << std::endl;
-	}
-	endFrameCount++;
 }
 
 void VulkanRenderingContext::render(const Camera& camera) {
 	renderGame(camera);
 	renderOverlay(camera);
-	//after frame began successfully present the next frame
-
-	
 }
 void VulkanRenderingContext::renderOverlay(const Camera& camera) {
 	// Record the command buffer for rendering the UI overlay
 	
 }
 void VulkanRenderingContext::renderGame(const Camera& camera) {
-	// Debug: Print frame information at the very beginning
-	static int debugFrameCount = 0;
-	bool shouldPrint = (debugFrameCount % 60 == 0);
-	
-	if (shouldPrint) {
-		std::cout << "=== RENDER FRAME " << debugFrameCount << " ===" << std::endl;
-		std::cout << "  m_currentFrame: " << m_currentFrame << std::endl;
-		std::cout << "  m_currentImageIndex: " << m_currentImageIndex << std::endl;
-		std::cout << "  Command buffer count: " << m_commandBuffers.size() << std::endl;
-		std::cout << "  Framebuffer count: " << m_framebuffers.size() << std::endl;
-	}
-	
-	// Update the uniform buffer for the CURRENT FRAME (not image index!)
 	ShaderData shaderData{};
 	
 	shaderData.projectionMatrix = camera.matrices.perspective;
 	shaderData.viewMatrix = camera.matrices.view;
 	shaderData.modelMatrix = glm::mat4(1.0f);
 
-	// Debug: Print matrix values occasionally
-	if (shouldPrint) {
-		std::cout << "  Using IDENTITY matrices for debugging (no camera transform)" << std::endl;
-		std::cout << "  Camera position: (" << camera.position.x << ", " << camera.position.y << ", " << camera.position.z << ")" << std::endl;
-		std::cout << "  Triangle vertices in clip space: (-1,-1,0) to (1,1,0)" << std::endl;
-	}
 
 	// Copy to the uniform buffer that matches the descriptor set we'll bind
 	memcpy(m_uniformBuffers[m_currentFrame].mapped, &shaderData, sizeof(ShaderData));
 
 	// Use command buffer that matches the swapchain image (if we have enough)
 	uint32_t commandBufferIndex = (m_commandBuffers.size() > m_currentImageIndex) ? m_currentImageIndex : (m_currentImageIndex % m_commandBuffers.size());
-	
-	if (shouldPrint) {
-		std::cout << "  Using command buffer[" << commandBufferIndex << "] for image[" << m_currentImageIndex << "]" << std::endl;
-		std::cout << "  Using uniform buffer[" << m_currentFrame << "] for frame sync" << std::endl;
-	}
 
 	vkResetCommandBuffer(m_commandBuffers[commandBufferIndex], 0);
 
@@ -393,30 +344,13 @@ void VulkanRenderingContext::renderGame(const Camera& camera) {
 	presentInfo.pImageIndices = &m_currentImageIndex;
 	VkResult result = vkQueuePresentKHR(m_graphicsQueue, &presentInfo);
 
-	// Handle swapchain recreation if needed
-	if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || m_framebufferResized) {
-		m_framebufferResized = false;
-		int width, height;
-		m_window.getFramebufferSize(&width, &height);
-		if (width > 0 && height > 0) {
-			std::cout << "Recreating swapchain after present (result: " << result << ", resized: " << m_framebufferResized << ")" << std::endl;
-			recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
-		}
-	} else if (result != VK_SUCCESS) {
+	if (result != VK_SUCCESS) {
 		std::cerr << "Failed to present swap chain image! VkResult: " << result << std::endl;
 	}
-
-	if (shouldPrint) {
-		std::cout << "  Submitted command buffer[" << commandBufferIndex << "] using fence[" << m_currentFrame << "]" << std::endl;
-		std::cout << "  Presented image[" << m_currentImageIndex << "]" << std::endl;
-	}
-	
-	debugFrameCount++;
 }
 
 void VulkanRenderingContext::recreateSurface(uint32_t width, uint32_t height)
 {
-	std::cout << "Recreating swapchain for new size: " << width << "x" << height << std::endl;
 	
 	// Wait for device to be idle before recreating resources
 	vkDeviceWaitIdle(m_device->logicalDevice);
@@ -430,7 +364,8 @@ void VulkanRenderingContext::recreateSurface(uint32_t width, uint32_t height)
 		return;
 	}
 	
-	std::cout << "Swapchain recreation completed successfully" << std::endl;
+	// Reset the framebuffer resized flag
+	m_framebufferResized = false;
 }
 
 void VulkanRenderingContext::cleanupSwapchainResources() 
@@ -892,13 +827,6 @@ bool VulkanRenderingContext::createVertexBuffer()
 	std::vector<uint32_t> indexBuffer{ 0, 1, 2 };
 	m_indexBuffer.count = static_cast<uint32_t>(indexBuffer.size());
 	uint32_t indexBufferSize = m_indexBuffer.count * sizeof(uint32_t);
-
-	std::cout << "Creating LARGE triangle with vertices:" << std::endl;
-	for (size_t i = 0; i < vertexBuffer.size(); ++i) {
-		const Vertex& vertex = vertexBuffer[i];
-		std::cout << "  Vertex " << i << ": pos(" << vertex.position[0] << ", " << vertex.position[1] << ", " << vertex.position[2]
-				  << ") color(" << vertex.color[0] << ", " << vertex.color[1] << ", " << vertex.color[2] << ")" << std::endl;
-	}
 
 	VkMemoryAllocateInfo memAlloc{};
 	memAlloc.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;

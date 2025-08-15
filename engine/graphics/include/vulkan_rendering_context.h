@@ -149,6 +149,8 @@ namespace engine::graphics {
         // Swapchain recreation helpers
         void cleanupSwapchainResources();
         bool recreateSwapchainResources(uint32_t width, uint32_t height);
+
+        void resizeWindow();
     };
     
 } // namespace engine::graphics

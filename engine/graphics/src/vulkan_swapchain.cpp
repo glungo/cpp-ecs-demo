@@ -183,7 +183,7 @@ void VulkanSwapChain::create(uint32_t& width, uint32_t& height, bool vsync, bool
 	}
 
 	// Find the transformation of the surface
-	VkSurfaceTransformFlagsKHR preTransform;
+	VkSurfaceTransformFlagBitsKHR preTransform;
 	if (surfCaps.supportedTransforms & VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR)
 	{
 		// We prefer a non-rotated transform
@@ -218,7 +218,7 @@ void VulkanSwapChain::create(uint32_t& width, uint32_t& height, bool vsync, bool
 	swapchainCI.imageColorSpace = colorSpace;
 	swapchainCI.imageExtent = { swapchainExtent.width, swapchainExtent.height };
 	swapchainCI.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
-	swapchainCI.preTransform = (VkSurfaceTransformFlagBitsKHR)preTransform;
+	swapchainCI.preTransform = preTransform;
 	swapchainCI.imageArrayLayers = 1;
 	swapchainCI.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
 	swapchainCI.queueFamilyIndexCount = 0;

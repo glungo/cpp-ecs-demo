@@ -58,6 +58,9 @@ namespace engine {
                     // Signal the rendering context that framebuffer was resized
                     m_renderingContext->setFramebufferResized(true);
                     
+                    // Immediately recreate the surface if possible (this will improve responsiveness)
+                    m_renderingContext->recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
+					
                     // Update camera aspect ratio
                     if (m_camera) {
                         float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
@@ -78,7 +81,8 @@ namespace engine {
             
             // Set camera type to lookat for simple triangle viewing
             m_camera->type = engine::Camera::CameraType::lookat;
-            
+            // Ensure flipY is set correctly for Vulkan
+            m_camera->flipY = true;
             // Set up perspective projection
             float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
             m_camera->setPerspective(60.0f, aspectRatio, 1.0f, 256.0f);
@@ -88,8 +92,7 @@ namespace engine {
             m_camera->setPosition(glm::vec3(0.0f, 0.0f, -3.0f));
             m_camera->setRotation(glm::vec3(0.0f, 0.0f, 0.0f));
             
-            // Ensure flipY is set correctly for Vulkan
-            m_camera->flipY = true;
+           
             
             std::cout << "Camera initialized:" << std::endl;
             std::cout << "  Position: (0, 0, -3)" << std::endl;

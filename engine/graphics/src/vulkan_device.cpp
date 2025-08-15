@@ -64,7 +64,7 @@ namespace engine::graphics::vulkan_utils
 	*/
 	VulkanDevice::~VulkanDevice()
 	{
-		if (commandPool)
+		if (commandPool && logicalDevice)
 		{
 			vkDestroyCommandPool(logicalDevice, commandPool, nullptr);
 		}
