@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "vulkan_rendering_context.h"
+#include "input_manager.h"
 namespace engine {
 
 // Forward declaration for window class
@@ -32,11 +33,15 @@ public:
     // Get job scheduler
     JobSystem::JobScheduler& getJobScheduler() { return *m_jobScheduler; }
 
+    // Get input manager
+    InputManager& getInput() { return m_inputManager; }
+
 private:
     std::unique_ptr<JobSystem::JobScheduler> m_jobScheduler;
     bool m_initialized;
     std::shared_ptr<glfw_window> m_window;
 	std::unique_ptr<Renderer> m_renderer;
+    InputManager m_inputManager;
 };
 
 } // namespace engine

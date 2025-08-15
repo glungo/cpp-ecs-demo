@@ -42,11 +42,14 @@ namespace engine {
         }
         //set up the window abstraction so we can hook into the callbacks
 		glfwSetWindowUserPointer(m_windowHandle->handle, this);
+        // Capture cursor for FPS camera style
+        glfwSetInputMode(m_windowHandle->handle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 		hookCursorPosCallback();
 		hookMouseButtonCallback();
 		hookKeyCallback();
 		hookResizeCallback();
+        hookScrollCallback();
         
         return true;
     }

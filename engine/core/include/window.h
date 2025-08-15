@@ -49,6 +49,9 @@ namespace engine {
         void setCursorPosCallback(std::function<void(double, double)> callback) {
 			m_cursorPosCallback = callback;
         }
+        void setScrollCallback(std::function<void(double, double)> callback) {
+            m_scrollCallback = callback;
+        }
 
     protected:
         virtual bool initialize(const WindowConfig& config) = 0;
@@ -59,6 +62,7 @@ namespace engine {
         std::function<void(int, int, int, int)> m_keyCallback;
         std::function<void(int, int, int)> m_mouseButtonCallback;
         std::function<void(double, double)> m_cursorPosCallback;
+        std::function<void(double, double)> m_scrollCallback;
     };
 
     // Forward declaration for GLFW-specific window implementation
@@ -105,7 +109,7 @@ namespace engine {
                 if (self->m_keyCallback) {
                     self->m_keyCallback(key, scancode, action, mods);
                 }
-				});
+			});
         }
         // Mouse and cursor callbacks
         void hookMouseButtonCallback() {
@@ -127,6 +131,14 @@ namespace engine {
                     self->m_cursorPosCallback(xpos, ypos);
                 }
                 });
+        }
+        void hookScrollCallback() {
+            glfwSetScrollCallback(m_windowHandle->handle, [](GLFWwindow* window, double xoffset, double yoffset) {
+                glfw_window* self = static_cast<glfw_window*>(glfwGetWindowUserPointer(window));
+                if (self->m_scrollCallback) {
+                    self->m_scrollCallback(xoffset, yoffset);
+                }
+            });
         }
 
 		// Window handle access

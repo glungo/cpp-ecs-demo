@@ -1,6 +1,7 @@
 #include "vulkan_rendering_context.h"
 #include "window.h"
 #include "camera.h"
+#include "input_manager.h"
 #include <chrono>
 
 namespace engine {
@@ -13,10 +14,7 @@ namespace engine {
             bool initialize(const glfw_window& window) {
                 m_renderingContext = std::make_unique<graphics::VulkanRenderingContext>(window);
 				m_camera = std::make_unique<engine::Camera>();
-                
-                // Initialize the camera properly
                 setupCamera(window);
-                
                 return m_renderingContext->initialize();
             }
 
@@ -37,70 +35,52 @@ namespace engine {
                     
                     // Render the frame
                     m_renderingContext->render(*m_camera);
-					
-					// Calculate frame timing
 					auto tEnd = std::chrono::high_resolution_clock::now();
 					auto tDiff = std::chrono::duration<double, std::milli>(tEnd - tStart).count();
 					float frameTimer = (float)tDiff / 1000.0f;
 					
 					// Update camera
 					m_camera->update(frameTimer);
-
-                    // End frame
                     m_renderingContext->endFrame();
                 }
             }
             
             void handleResize(int width, int height) {
                 if (m_renderingContext && width > 0 && height > 0) {
-                    std::cout << "Renderer handling resize: " << width << "x" << height << std::endl;
-                    
-                    // Signal the rendering context that framebuffer was resized
                     m_renderingContext->setFramebufferResized(true);
-                    
-                    // Immediately recreate the surface if possible (this will improve responsiveness)
                     m_renderingContext->recreateSurface(static_cast<uint32_t>(width), static_cast<uint32_t>(height));
-					
-                    // Update camera aspect ratio
                     if (m_camera) {
                         float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
                         m_camera->updateAspectRatio(aspectRatio);
-                        std::cout << "Updated camera aspect ratio to: " << aspectRatio << std::endl;
                     }
                 }
             }
 
+            Camera& getCamera() { return *m_camera; }
+
+            void UpdateCameraInput(const engine::InputManager& inputManager) {
+                if (m_camera) {
+                    // Map WASD to camera keys
+                    m_camera->keys.up = inputManager.isKeyDown(GLFW_KEY_W);
+                    m_camera->keys.down = inputManager.isKeyDown(GLFW_KEY_S);
+                    m_camera->keys.left = inputManager.isKeyDown(GLFW_KEY_A);
+                    m_camera->keys.right = inputManager.isKeyDown(GLFW_KEY_D);
+                }
+			}
     private:
         std::unique_ptr<graphics::VulkanRenderingContext> m_renderingContext;
         std::unique_ptr<engine::Camera> m_camera;
         
         void setupCamera(const glfw_window& window) {
-            // Get window dimensions
-            int width, height;
-            window.getWindowSize(&width, &height);
-            
-            // Set camera type to lookat for simple triangle viewing
-            m_camera->type = engine::Camera::CameraType::lookat;
-            // Ensure flipY is set correctly for Vulkan
+            int width, height; window.getWindowSize(&width, &height);
+            m_camera->type = engine::Camera::CameraType::firstperson; // enable movement
             m_camera->flipY = true;
-            // Set up perspective projection
             float aspectRatio = static_cast<float>(width) / static_cast<float>(height);
-            m_camera->setPerspective(60.0f, aspectRatio, 1.0f, 256.0f);
-            
-            // Position camera to see the triangle
-            // Triangle vertices are at -1 to 1, so place camera at z=3 to see it
+            m_camera->setPerspective(60.0f, aspectRatio, 1.0, 256.0f);
             m_camera->setPosition(glm::vec3(0.0f, 0.0f, -3.0f));
-            m_camera->setRotation(glm::vec3(0.0f, 0.0f, 0.0f));
-            
-           
-            
-            std::cout << "Camera initialized:" << std::endl;
-            std::cout << "  Position: (0, 0, -3)" << std::endl;
-            std::cout << "  Rotation: (0, 0, 0)" << std::endl;
-            std::cout << "  FOV: 60 degrees" << std::endl;
-            std::cout << "  Aspect: " << aspectRatio << std::endl;
-            std::cout << "  Near/Far: 0.1/10.0" << std::endl;
-            std::cout << "  FlipY: true (Vulkan)" << std::endl;
+            m_camera->setRotation(glm::vec3(0.0f));
+            m_camera->movementSpeed = 5.0f;
+            m_camera->rotationSpeed = 1.0f;
         }
     };
 }

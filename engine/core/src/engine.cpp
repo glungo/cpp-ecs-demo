@@ -33,6 +33,20 @@ bool Engine::initialize() {
         return false;
     }
 
+    // Wire input callbacks
+    m_window->setKeyCallback([this](int key, int scancode, int action, int mods){
+        m_inputManager.handleKey(key, scancode, action, mods);
+    });
+    m_window->setMouseButtonCallback([this](int button, int action, int mods){
+        m_inputManager.handleMouseButton(button, action, mods);
+    });
+    m_window->setCursorPosCallback([this](double x, double y){
+        m_inputManager.handleCursorPos(x, y);
+    });
+    m_window->setScrollCallback([this](double xoff, double yoff){
+        m_inputManager.handleScroll(xoff, yoff);
+    });
+
     m_renderer = std::make_unique<Renderer>();
     if (!m_renderer->initialize(*m_window)) {
         LOG_ERROR << "Failed to initialize renderer" << LOG_END;
@@ -53,8 +67,16 @@ bool Engine::initialize() {
     }
 
     while (!m_window->shouldClose()) {
+#ifdef DEBUG
+        // Update camera movement based on input
+        if (m_renderer) {
+			m_renderer->UpdateCameraInput(m_inputManager);
+        }
+#endif
+
 		m_renderer->render();
         m_window->pollEvents();
+        m_inputManager.endFrame();
     }
 	m_window->shutdown();
 
@@ -71,8 +93,6 @@ void Engine::shutdown() {
     
     LOG_INFO << "Shutting down engine" << LOG_END;
     
-    // No explicit shutdown needed as both classes will clean up in their destructors
-    
     m_initialized = false;
     LOG_INFO << "Engine shutdown completed" << LOG_END;
 }
@@ -83,7 +103,6 @@ void Engine::update(float deltaTime) {
         return;
     }
     
-    // Process jobs
     m_jobScheduler->Update(deltaTime);
     m_renderer->render();
 }

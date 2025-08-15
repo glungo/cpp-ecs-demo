@@ -173,11 +173,12 @@ public:
 				camFront = glm::normalize(camFront);
 
 				float moveSpeed = deltaTime * movementSpeed;
-
+				// movement is only on the horizontal plane
+				
 				if (keys.up)
-					position += camFront * moveSpeed;
+					position += glm::normalize(glm::cross(camFront, glm::vec3(1.0f, 0.0f, 0.0f))) * moveSpeed;
 				if (keys.down)
-					position -= camFront * moveSpeed;
+					position -= glm::normalize(glm::cross(camFront, glm::vec3(1.0f, 0.0f, 0.0f))) * moveSpeed;
 				if (keys.left)
 					position -= glm::normalize(glm::cross(camFront, glm::vec3(0.0f, 1.0f, 0.0f))) * moveSpeed;
 				if (keys.right)
