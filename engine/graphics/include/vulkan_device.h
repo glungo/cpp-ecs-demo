@@ -73,4 +73,4 @@ namespace engine::graphics::vulkan_utils
 	std::vector<const char*> getSpriteRenderingRequiredExtensions();
 	void getSpriteRenderingRequiredFeatures(VkPhysicalDeviceFeatures& features, void** pNext);
 
-}        // namespace vks
+}
